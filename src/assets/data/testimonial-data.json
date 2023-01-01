@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "name": "John Doe",
+        "company": "Software Engineer At Etsy",
+        "img": "https://xsgames.co/randomusers/avatar.php?g=male",
+        "quote": "I was looking for a job a few months ago and had no idea where to start; I used Chakri and found the best job in the market!"
+
+    },
+    {
+        "id": 2,
+        "name": "Dee Kastor",
+        "company": "UI/UX Designer At Google",
+        "img": "https://xsgames.co/randomusers/avatar.php?g=female",
+        "quote": "I had been looking for jobs for several months and it was incredibly frustrating. Thankfully, Chakri found me a position that allowed me to grow into my career. The website is really easy to use. I like that it has so many features and has been really helpful for me."
+
+    },
+    {
+        "id": 3,
+        "name": "Roy Lambaren",
+        "company": "Software Engineer At Microsoft",
+        "img": "https://xsgames.co/randomusers/avatar.php?g=male",
+        "quote": "I have spent months looking for a good job, and Chakri was the best one I had found. It helped me find a job which matched my skills and expectations, and also gave me good tips on how to make sure I never got laid off again."
+
+    }
+]
