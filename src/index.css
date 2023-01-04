@@ -35,6 +35,7 @@ html {
 .navbar-logo {
     font-size: 2rem;
     font-weight: 600;
+    text-decoration: none;
 }
 
 .h, .i {
@@ -788,7 +789,7 @@ html {
     margin: auto;
 }
 
-.browse-candidates-header {
+.cd_cp-header {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -798,12 +799,12 @@ html {
     border-radius: 10px;
 }
 
-.browse-candidates-header h2 {
+.cd_cp-header h2 {
     color: var(--primary-text-color);
     font-size: 3rem;
 }
 
-.browse-text {
+.cd_cp-text {
     font-size: 1.3rem;
     text-align: center;
     margin-bottom: 2rem;
@@ -852,7 +853,7 @@ html {
     color: var(--primary-text-color);
 }
 
-.browser-candidates-grid {
+.browse-candidates-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     padding-top: 2rem;
@@ -909,16 +910,17 @@ html {
 }
 
 .skill-tag {
-    background-color: #EAF2FF;
-    color: var(--primary-text-color);
+    background-color: white;
     padding: 1rem;
     font-size: 1.2rem;
     border-radius: 10px;
     cursor: pointer;
+    font-weight: 600;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2);
 }
 
 .skill-tag:hover {
-    color: var(--register-color);
+    color: var(--secondary-text-color);
 }
 
 .candidate-card-footer {
@@ -940,6 +942,7 @@ html {
     display: flex;
     align-items: center;
     gap: 1.5rem;
+    margin-bottom: 4rem;
 }
 
 .pg-icon {
@@ -979,5 +982,195 @@ html {
 .pagination-list li:hover {
     background-color: var(--ternary-text-color);
     color: var(--primary-text-color);
+    transform: 0.2s;
+}
+
+/* ! Browse Companies */
+.browse-companies-container {
+    max-width: 120rem;
+    padding: 2rem;
+    margin: auto;
+}
+
+.filter-cards-grid {
+    display: grid;
+    grid-template-columns: 20% 77.3%;
+    padding: 3rem 0 2rem 0;
+    gap: 3rem;
+}
+
+.filter {
+    display: flex;
+    flex-direction: column;
+}
+
+.filter-header {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid var(--ternary-text-color);
+    padding-bottom: 1rem;
+    margin-bottom: 3rem;
+    justify-content: space-between;
+}
+
+.filter-header h3 {
+    color: var(--primary-text-color);
+    font-size: 2rem;
+}
+
+.filter-header span {
+    font-size: 1.4rem;
+    color: var(--ternary-text-color);
+}
+
+.filter-location {
+    display: flex;
+    align-items: center;
+    border: 0.5px solid var(--ternary-text-color);
+    padding: 1rem;
+    font-size: 1.6rem;
+    gap: 1rem;
+    border-radius: 5px;
+    margin-bottom: 3rem;
+}
+
+.filter-location:focus {
+    border: 0.5px solid black;
+}
+
+.location {
+    width: 20rem;
+    background-color: transparent;
+    font-size: 1.6rem;
+    border: none;
+    color: var(--ternary-text-color);
+}
+
+.filter-industry, .filter-allowance {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.filter-industry h3, .filter-allowance h3 {
+    font-size: 2rem;
+}
+
+.hr {
+    color: var(--ternary-text-color);
+    margin: 1rem 0 1rem 0;
+}
+
+.filter-list {
+    list-style-type: none;
+}
+
+.filter-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.cb-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.cb {
+    width: 1.8rem;
+    height: 1.8rem;
+}
+
+.cb:checked {
+    accent-color: var(--register-color);
+}
+
+.cb-container label {
+    font-size: 1.5rem;
+}
+
+.cb-item-number {
+    background-color: var(--secondary-background-color);
+    color: var(--secondary-text-color);
+    font-size: 1.3rem;
+    padding: 0.5rem;
+    border-radius: 5px;
+}
+
+.location:focus {
+    color: black;
+}
+
+.cp-cards {
+    display: flex;
+    flex-direction: column;
+}
+
+.cp-header {
+    border-bottom: 1px solid var(--ternary-text-color);
+    padding-bottom: 1.95rem;
+    font-weight: 600;
+    margin-bottom: 3rem;
+}
+
+.cp-shown {
+    font-size: 1.4rem;
+    color: var(--ternary-text-color);
+}
+
+.cp-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+}
+
+.cp-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    background-color: var(--secondary-background-color);
+    border-radius: 10px;
+    padding: 3rem;
+}
+
+.cp-logo {
+    width: 6rem;
+    height: 6rem;
+    border-radius: 10px;
+}
+
+.cp-name {
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: var(--primary-text-color);
+}
+
+.cp-location {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.2rem;
+    margin-bottom: 4rem;
+}
+
+.cp-location span {
+    color: var(--ternary-text-color);
+}
+
+.cp-jobs {
+    background-color: white;
+    padding: 1.5rem;
+    font-size: 1.3rem;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2);
+}
+
+.cp-jobs:hover {
+    color: var(--secondary-text-color);
     transform: 0.2s;
 }
