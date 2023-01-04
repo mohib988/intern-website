@@ -6,7 +6,7 @@ import Checkbox from './Checkbox'
 import Pagination from './Pagination'
 
 const BrowseCompanies = () => {
-
+const mohib="mohib"
     return (
     <div className='browse-companies-container'>
         <CdAndCpHeader type="companies" />
