@@ -6,7 +6,8 @@ import Checkbox from './Checkbox'
 import Pagination from './Pagination'
 
 const BrowseCompanies = () => {
-  return (
+
+    return (
     <div className='browse-companies-container'>
         <CdAndCpHeader type="companies" />
         <section className="filter-cards-grid">
