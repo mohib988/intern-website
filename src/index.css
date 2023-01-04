@@ -1046,14 +1046,15 @@ html {
     color: var(--ternary-text-color);
 }
 
-.filter-industry, .filter-allowance {
+.filter-industry, .filter-allowance, .filter-job_type {
     display: flex;
     flex-direction: column;
     gap: 2rem;
 }
 
-.filter-industry h3, .filter-allowance h3 {
+.filter-industry h3, .filter-allowance h3, .filter-job_type h3 {
     font-size: 2rem;
+    font-weight: 600;
 }
 
 .hr {

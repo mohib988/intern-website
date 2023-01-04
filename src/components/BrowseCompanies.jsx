@@ -42,6 +42,14 @@ const BrowseCompanies = () => {
                         <Checkbox industry="Unpaid" number={36} label="unpaid" />
                     </ul>
                 </section>
+                <hr className='hr' />
+                <section className="filter-job_type">
+                    <h3>Job type</h3>
+                    <ul className="filter-list">
+                        <Checkbox industry="Full-Time" number={20} defaultChecked="true" label="ft" />
+                        <Checkbox industry="Part-Time" number={24} label="pt" />
+                    </ul>
+                </section>
             </section>
             <section className="cp-cards">
                 <section className="cp-header">
