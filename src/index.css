@@ -910,17 +910,17 @@ html {
 }
 
 .skill-tag {
-    background-color: white;
+    background-color: #D1DAEC;
     padding: 1rem;
     font-size: 1.2rem;
-    border-radius: 10px;
+    border-radius: 5px;
     cursor: pointer;
     font-weight: 600;
-    box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2);
+    color: #FBF9F5;
 }
 
 .skill-tag:hover {
-    color: var(--secondary-text-color);
+    color: var(--ternary-text-color);
 }
 
 .candidate-card-footer {
@@ -1104,24 +1104,24 @@ html {
     color: black;
 }
 
-.cp-cards {
+.re-cards {
     display: flex;
     flex-direction: column;
 }
 
-.cp-header {
+.re-header {
     border-bottom: 1px solid var(--ternary-text-color);
     padding-bottom: 1.95rem;
     font-weight: 600;
     margin-bottom: 3rem;
 }
 
-.cp-shown {
+.re-shown {
     font-size: 1.4rem;
     color: var(--ternary-text-color);
 }
 
-.cp-cards-grid {
+.re-cards-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 2rem;
@@ -1174,4 +1174,122 @@ html {
 .cp-jobs:hover {
     color: var(--secondary-text-color);
     transform: 0.2s;
+}
+
+/* ! Find Job */
+.find-job-container {
+    max-width: 120rem;
+    padding: 2rem;
+    margin: auto;
+}
+
+.find-job-grid {
+    display: grid;
+    grid-template-columns: 20% 77.3%;
+    padding: 3rem 0 2rem 0;
+    gap: 3rem;
+}
+
+/* ! Find Job Card */
+.find-job-card {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    background-color: var(--secondary-background-color);
+    border-radius: 10px;
+    padding: 3rem;
+}
+
+.fj-header {
+    display: flex;
+    gap: 1rem;
+}
+
+.fj-header img {
+    width: 6rem;
+    height: 6rem;
+    border-radius: 10px;
+}
+
+.fj-name-loc {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.fj-name {
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.fj-loc {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--ternary-text-color);
+}
+
+.fj-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.fj-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.fj-details {
+    display: flex;
+    gap: 2rem;
+}
+
+.fj-allowance, .fj-time {
+    display: flex;
+    align-items: center;
+    color: var(--ternary-text-color);
+    gap: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.fj-summary {
+    color: var(--input-text-color);
+    font-size: 1.2rem;
+}
+
+.fj-footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.fj-pay {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--secondary-text-color);
+}
+
+.fj-pay sub {
+    font-size: 1.4rem;
+    color: var(--ternary-text-color);
+    font-weight: lighter;
+}
+
+.fj-apply {
+    background-color: #E0E6F7;
+    color: var(--register-color);
+    padding: 1rem;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.fj-apply:hover{
+    background-color: var(--secondary-text-color);
+    color: white;
+    transition: 0.2s;
+}
+
+.grid {
+    grid-template-columns: repeat(3, 1fr);
 }
