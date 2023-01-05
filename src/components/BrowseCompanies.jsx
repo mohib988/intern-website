@@ -5,7 +5,8 @@ import Filter from './Filter'
 import CompanyCard from './CompanyCard'
 
 const BrowseCompanies = () => {
-  return (
+
+    return (
     <div className='browse-companies-container'>
         <CdAndCpHeader type="companies" />
         <section className="filter-cards-grid">

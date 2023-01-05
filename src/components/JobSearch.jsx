@@ -1,8 +1,47 @@
 import React from 'react';
 import { FaSistrix } from 'react-icons/fa';
+import {useState} from "react"
 import { BsHandbag, BsGrid3X3Gap } from 'react-icons/bs';
+import { ReactSearchAutocomplete } from 'react-search-autocomplete'
+import {items} from "../assets/data/items.js"
 
 const JobSearch = () => {
+  const [result, setResult] = useState("");
+  // note: the id field is mandatory
+  
+
+  const handleOnSearch = (string, results) => {
+    // onSearch will have as the first callback parameter
+    // the string searched and for the second the results.
+    // console.log( string,results)
+  
+console.log(string,results)  
+  }
+
+  const handleOnHover = (result) => {
+    // the item hovered
+    // document.getElementById("one").value=result
+    setResult(result.name)
+  }
+
+  const handleOnSelect = (item) => {
+    // the item selected
+    console.log(item)
+  }
+
+  const handleOnFocus = () => {
+    console.log('Focused')
+  }
+
+  const formatResult = (item) => {
+    return (
+      <>
+        {/* <span style={{ display: 'block', textAlign: 'left' }}>id: {item}</span> */}
+        <span style={{ display: 'block', textAlign: 'left' }}> {item.name}</span>
+      </>
+    )
+  }
+
   return (
     <div className="job-search-container">
         <h1 className="job-search-header">
@@ -21,7 +60,19 @@ const JobSearch = () => {
                 <option value="development">Development</option>
             </select>
             <BsGrid3X3Gap className='keyword-logo' />
-            <input type="text" className="job-search-keyword" placeholder='Your Keyword...' />
+            {/* <input type="text" className="job-search-keyword" placeholder='Your Keyword...' /> */}
+            <div style={{ width: 300 }}>
+          <ReactSearchAutocomplete 
+          items={items}
+          onSearch={handleOnSearch}
+            onHover={handleOnHover}
+            onSelect={handleOnSelect}
+            onFocus={handleOnFocus}
+            autoFocus
+            formatResult={formatResult}
+            // inputSearchString={result}
+          />
+          </div>
             <button className='job-search-button'> <FaSistrix className='search-logo' /> Search</button>
         </div>
     </div>
