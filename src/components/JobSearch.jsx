@@ -4,28 +4,37 @@ import {useState} from "react"
 import { BsHandbag, BsGrid3X3Gap } from 'react-icons/bs';
 import { ReactSearchAutocomplete } from 'react-search-autocomplete'
 import {items} from "../assets/data/items.js"
+import { useDispatch,useSelector } from 'react-redux';
+
+import {getPostsBySearch} from "../actions/jobPost.js"
 
 const JobSearch = () => {
   const [result, setResult] = useState("");
   // note: the id field is mandatory
-  
+  const {posts}=useSelector((state)=>state.centralStore)
+const dispatch=useDispatch()  
 
   const handleOnSearch = (string, results) => {
-    // onSearch will have as the first callback parameter
-    // the string searched and for the second the results.
+dispatch(getPostsBySearch("ne"))
+// onSearch will have as the first callback parameter
+// the string searched and for the second the results.
     // console.log( string,results)
-  
+    
 console.log(string,results)  
   }
 
   const handleOnHover = (result) => {
     // the item hovered
     // document.getElementById("one").value=result
+
+    console.log(posts)
+    
     setResult(result.name)
   }
-
+  
   const handleOnSelect = (item) => {
     // the item selected
+    
     console.log(item)
   }
 
