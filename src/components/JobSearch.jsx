@@ -61,7 +61,7 @@ console.log(string,results)
             </select>
             <BsGrid3X3Gap className='keyword-logo' />
             {/* <input type="text" className="job-search-keyword" placeholder='Your Keyword...' /> */}
-            <div style={{ width: 300 }}>
+            <div style={{ width: 300 ,cursor:"pointer"}}>
           <ReactSearchAutocomplete 
           items={items}
           onSearch={handleOnSearch}
@@ -71,6 +71,7 @@ console.log(string,results)
             autoFocus
             formatResult={formatResult}
             // inputSearchString={result}
+         
           />
           </div>
             <button className='job-search-button'> <FaSistrix className='search-logo' /> Search</button>
