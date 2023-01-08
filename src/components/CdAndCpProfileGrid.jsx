@@ -75,17 +75,19 @@ const CdAndCpProfileGrid = (props) => {
                     { props.profile?.type === 'candidate' && <section className="work-experience">
                         <h3>Work Experience</h3>
                         <div className="we-card-container">
-                            {props.profile?.education.map((i,j)=>{
-                                <ProfileCard {...i} key={j}/>
+                            {(props.profile?.educations).map((i,j)=>{
+                                return <ProfileCard prop={i} key={j}/>
+                                
                             })
-                            }
+                        }
+                  ]
                         </div>
                     </section>}
                     { props.profile?.type === 'candidate' && <section className="education">
                         <h3>Education</h3>
                         <div className="ed-card-container">
-                            <ProfileCard {...edProps} />
-                            <ProfileCard {...edProps} />
+                            {/* <ProfileCard {...edProps} />
+                            <ProfileCard {...edProps} /> */}
                         </div>
                     </section>}
                 </section>

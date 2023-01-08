@@ -1,7 +1,7 @@
 import React from 'react'
 import { GoLocation } from 'react-icons/go'
 
-const CompanyCard = () => {
+const CompanyCard = ({company}) => {
   return (
     <>
         <div className="cp-card">

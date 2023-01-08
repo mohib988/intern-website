@@ -32,8 +32,8 @@ const FindJobCard = ({post}) => {
             <p className="fj-summary">{post.requirement}</p>
             <section className="fj-skills-req">
                 <section className="candidate-card-skills">
-                    {post.skill.map((i)=>{
-                        return <span className='skill-tag'>{i}</span>
+                    {post.skill.map((i,j)=>{
+                        return <span  key={j}className='skill-tag'>{i}</span>
                     })
 
                     }

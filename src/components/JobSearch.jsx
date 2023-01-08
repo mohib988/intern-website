@@ -15,7 +15,7 @@ const JobSearch = () => {
 const dispatch=useDispatch()  
 
   const handleOnSearch = (string, results) => {
-dispatch(getPostsBySearch("ne"))
+dispatch(getPostsBySearch(string))
 // onSearch will have as the first callback parameter
 // the string searched and for the second the results.
     // console.log( string,results)
@@ -27,7 +27,7 @@ console.log(string,results)
     // the item hovered
     // document.getElementById("one").value=result
 
-    console.log(posts)
+    // console.log(posts)
     
     setResult(result.name)
   }

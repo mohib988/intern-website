@@ -1,22 +1,24 @@
 import React from 'react'
 import { FcGoogle } from 'react-icons/fc'
 
-const ProfileCard = ({logo, title, loc, cpName, time, desc}) => {
+const ProfileCard = (props) => {
+
     return (
         <>
             <section className="pf-card">
                 <div className="pf-logo">
-                    {logo}
+                <FcGoogle />,
                 </div>
                 <div className="pf-details">
                     <section className="pf-top">
                         <div className="pf-title-loc-company">
-                            <h4>{title}</h4>
-                            <span>{loc} &#x2022; {cpName}</span>
+                            <h4>{props.prop.instituteName}</h4>
+                            <span>pakistan &#x2022; google</span>
                         </div>
-                        <span className="pf-work-time">{time}</span>
+                        <span className="pf-work-time">{ props.prop.startingDate.substring(0,4)+"-"+props.prop.endingDate.substring(0,4)
+                        }</span>
                     </section>
-                    <p className="pf-bottom">{desc}</p>
+                    <p className="pf-bottom">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius natus earum eveniet minus reiciendis rem enim fugiat ad laborum accusamus?</p>
                 </div>
             </section>
         </>

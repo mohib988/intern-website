@@ -18,7 +18,7 @@ const BrowseCandidates = () => {
             <CandidateCard />
             <CandidateCard />
         </section>
-        <Pagination />
+        <Pagination  number={5}/>
     </div>
   )
 }

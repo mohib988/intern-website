@@ -2,6 +2,10 @@ import {createSlice} from "@reduxjs/toolkit"
 
 const initialState={
     posts:[],
+    companies:[],
+    currentCompany:null,
+    currentCandidate:{},
+candidates:[],
     isLoading:true,
     userData:null,
 }
@@ -19,22 +23,29 @@ state.isLoading=false
       Red_FetchBySearch:(state,action)=>{
 state.posts=action.payload
       },
-      Red_FetchAllPost:(state,action)=>{
+      Red_FetchAllPosts:(state,action)=>{
 state.posts=action.payload
       },
-
+      Red_FetchAllCandidates:(state,action)=>{
+state.candidates=action.payload
+      },
+      Red_FetchAllCompanies:(state,action)=>{
+state.companies=action.payload
+      },
       Red_Login:(state,action)=>{
         localStorage.setItem('profile', JSON.stringify({ ...action?.data }));
-    userData=action.payload  
+    state.userData=action.payload  
     },
       Red_Logout:(state,action)=>{
         localStorage.clear();
-    userData=null 
+    state.userData=null 
     },
+      Red_FetchCurrentCandidate:(state,action)=>{
+state.currentCandidate={...(action.payload),type:"candidate"}
 
-       }
+       },
 
-
+      }
 })
-export const {Red_EndLoading,Red_FetchAllPost,Red_FetchBySearch,Red_Login,Red_Logout,Red_StartLoading}= centralStore.actions;
+export const {Red_EndLoading,Red_FetchAllPosts,Red_FetchBySearch,Red_Login,Red_Logout,Red_StartLoading,Red_FetchAllCandidates,Red_FetchAllCompanies,Red_FetchCurrentCandidate}= centralStore.actions;
 export default centralStore.reducer;
