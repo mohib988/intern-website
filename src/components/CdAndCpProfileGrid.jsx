@@ -7,9 +7,11 @@ import { AiOutlineFieldTime } from 'react-icons/ai'
 import { FaLanguage } from 'react-icons/fa'
 import { FcGoogle, FcDribbble } from 'react-icons/fc'
 import { FiMail } from 'react-icons/fi'
+import ReactLoading from 'react-loading';
+import { useSelector } from 'react-redux'
 
-
-const CdAndCpProfileGrid = ({type, name, desc}) => {
+const CdAndCpProfileGrid = (props) => {
+    const {isLoading}=useSelector(state=>state.centralStore)
     let weProps = {
         logo: <FcGoogle />,
         title : "Crisis Intervention Specialist",
@@ -27,15 +29,18 @@ const CdAndCpProfileGrid = ({type, name, desc}) => {
         time : "2017 - 2018",
         desc : "Minimum 3 shifts a week Monday - Friday with the ability to work an 8 to 9 hour time each week between the hours of 7 A.M. - 7 P.M."
       };
+      if(isLoading){
+      return   <ReactLoading color='black' type="spin" height={337} width={115} />
+      }
     return (
         <>
             <div className="profile-body-grid">
                 <section className="profile-details">
                     <section className="about-me">
-                        <h3>About {name}</h3>
-                        <p>{desc}</p>
+                        <h3>About {props.profile?.name}</h3>
+                        <p>{props.profile?.summary}</p>
                     </section>
-                    { type === 'company' && <section className="company-profile-skills">
+                    { props.profile?.type === 'company' && <section className="company-profile-skills">
                         <h3>Essential Knowledge, Skills, and Experience</h3>
                         <ul>
                             <li>A portfolio demonstrating well thought through and polished end to end customer journeys</li>
@@ -49,29 +54,34 @@ const CdAndCpProfileGrid = ({type, name, desc}) => {
                             <li>Proficiency in a variety of design tools such as Figma, Photoshop, Illustrator, and Sketch</li>
                         </ul>
                     </section>}
-                    { type === 'candidate' && <section className="professional-skills">
+                    
+                    { props.profile?.type === 'candidate' && <section className="professional-skills">
                         <h3>Professional Skills</h3>
                         <section className="candidate-profile-skills">
-                            <span>Figma</span>
-                            <span>Adobe XD</span>
-                            <span>PSD</span>
-                            <span>Angular</span>
-                            <span>NextJS</span>
-                            <span>TailwindCSS</span>
-                            <span>ReactJS</span>
-                            <span>GraphQL</span>
+{
+                  (props.profile?.skill).map((i,j)=>{
+                      return  <span key={j}>{i}</span>}
+                ) 
+           
+        }
+        
+    
+    
+    
+
+
                         </section>
                     </section>}
-                    { type === 'candidate' && <section className="work-experience">
+                    { props.profile?.type === 'candidate' && <section className="work-experience">
                         <h3>Work Experience</h3>
                         <div className="we-card-container">
-                            <ProfileCard {...weProps} />
-                            <ProfileCard {...weProps} />
-                            <ProfileCard {...weProps} />
-                            <ProfileCard {...weProps} />
+                            {props.profile?.education.map((i,j)=>{
+                                <ProfileCard {...i} key={j}/>
+                            })
+                            }
                         </div>
                     </section>}
-                    { type === 'candidate' && <section className="education">
+                    { props.profile?.type === 'candidate' && <section className="education">
                         <h3>Education</h3>
                         <div className="ed-card-container">
                             <ProfileCard {...edProps} />
@@ -82,16 +92,16 @@ const CdAndCpProfileGrid = ({type, name, desc}) => {
                 <section className="profile-overview">
                     <h4 className="overview-header">Overview</h4>
                     <section className="overview-details">
-                        <OverviewDetailTag logo={<GiHandBag />} title="Company Field" value="Accounting / Finance" />
+                        <OverviewDetailTag logo={<GiHandBag />} title="Company Field" value={props.profile?.field} />
                         <OverviewDetailTag logo={<BsCurrencyDollar />} title="Salary" value="$26-30$k" />
                         <OverviewDetailTag logo={<FaLanguage />} title="Language" value="English" />
                         <OverviewDetailTag logo={<AiOutlineFieldTime />} title="Member Since" value="Jul 2012" />
                     </section>
                     <section className="profile-footer">
                         <ul>
-                            <li><span>Location:</span> 205 North Michigan Avenue, Suite 810 Chicago, 60601, USA</li>
-                            <li><span>Phone:</span> (123) 456-7890</li>
-                            <li><span>Email:</span> contact@Evara.com</li>
+                            <li><span>Location:</span> {props.profile.address}</li>
+                            <li><span>Phone:</span> props.profile?.phoneNo</li>
+                            <li><span>Email:</span> props.profile?.email</li>
                         </ul>
                         <a className="send-message"><FiMail />Send Message</a>
                     </section>
