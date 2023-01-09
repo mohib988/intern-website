@@ -13,7 +13,7 @@ const CardsGrid = ({cardType, qty, grid}) => {
                 <section className={`re-cards-grid ${grid} `}>
                     {Array(qty).fill(cardType)}
                 </section>
-                <Pagination number={5} />
+                <Pagination number={5} type={"companies"} />
             </section>
         </>
     )

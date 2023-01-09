@@ -1,9 +1,10 @@
 import React from 'react'
 import { FaAngleLeft, FaAngleRight } from 'react-icons/fa'
+import { Link } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { getAllPost } from '../actions/jobPost.js'
 
-const Pagination = ({number}) => {
+const Pagination = ({number,type}) => {
   const dispatch=useDispatch()
   return (
     <>
@@ -11,9 +12,7 @@ const Pagination = ({number}) => {
             <FaAngleLeft className='pg-icon' />
             <ul className="pagination-list">    
                 { Array(number).fill().map((i,j)=> 
-                 <li  key={j}onClick={()=>{
-                   dispatch(getAllPost(j+1))
-                  }}>{j+1}</li>
+                 <Link to={`/${type}/?page=${j+1}`} > {j+1}<li key={j} ></li></Link>
               )}
             </ul>
             <FaAngleRight className='pg-icon' />
