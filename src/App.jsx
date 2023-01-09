@@ -20,7 +20,7 @@ function App() {
           <Route path="/candidates" element={<BrowseCandidates />} />
           <Route path="/candidates/:id" element={<CandidateProfile />} />
           <Route path="/companies" element={<BrowseCompanies />} />
-          <Route path="/companies/1" element={<CompanyProfile />} />
+          <Route path="/companies/:id" element={<CompanyProfile />} />
           <Route path="/job" element={<FindJob />} />
         </Route>
       </Routes>

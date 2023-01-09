@@ -1,7 +1,42 @@
 import React from 'react'
 import Pagination from './Pagination'
+import CompanyCard from './CompanyCard'
+import { useDispatch,useSelector} from 'react-redux'
+import FindJobCard from './FindJobCard'
+import ReactLoading from 'react-loading';
+import { Link } from 'react-router-dom'
 
-const CardsGrid = ({cardType, qty, grid}) => {
+
+const CardsGrid = (props) => {
+    
+    const {isLoading}=useSelector(state=>state.centralStore)
+
+    if(isLoading){
+      return   <ReactLoading color='black' type="spin" height={337} width={115} />
+    }
+function getcomponent(name,tomap){
+    if(name==="companies"){
+        return(
+        tomap.map((i,j)=>{
+            return <Link  to={`${i._id}`}style={{textDecoration: 'none' }}><CompanyCard company={i}key={j}/></Link>
+        }))
+
+    }
+    if(name==="job"){
+        return(
+        tomap.map((i,j)=>{
+            return <FindJobCard post={i}key={j}/>
+        }))
+    }
+        // {Array(8).fill(cardType)}
+        // return <CompanyCard/>
+
+}
+
+// if(isLoading){
+//     return<ReactLoading color='black' type="spin" height={337} width={115} />
+// }
+
     return (
         <>
             <section className="re-cards">
@@ -10,10 +45,10 @@ const CardsGrid = ({cardType, qty, grid}) => {
                         Showing <span>41-60</span> of <span>944</span> jobs
                     </span>
                 </section>
-                <section className={`re-cards-grid ${grid} `}>
-                    {Array(qty).fill(cardType)}
+                <section className={`re-cards-grid ${props.grid} `}>
+                  {getcomponent(props.type,props.tomap)}
                 </section>
-                <Pagination />
+                <Pagination number={5} type={props.type} />
             </section>
         </>
     )

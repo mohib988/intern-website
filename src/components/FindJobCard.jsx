@@ -3,7 +3,9 @@ import { GoLocation } from 'react-icons/go'
 import { AiOutlineClockCircle } from 'react-icons/ai'
 import { BsClock } from 'react-icons/bs'
 
-const FindJobCard = () => {
+
+
+const FindJobCard = (props) => {
     return (
         <div className='find-job-card'>
             {/* <img src="https://xsgames.co/randomusers/avatar.php?g=female" alt="" className="cp-logo" />
@@ -14,31 +16,34 @@ const FindJobCard = () => {
             </span>
             <a className="cp-jobs">12 Jobs Open</a> */}
             <section className="fj-header">
-                <img src="https://xsgames.co/randomusers/avatar.php?g=female" alt="" className="fj-logo" />
+                <img src={"http://localhost:5000/"+props.post.companyId.profilePicture} alt="" className="fj-logo" />
                 <div className="fj-name-loc">
-                    <h4 className="fj-name">LinkedIn</h4>
-                    <span className="fj-loc"><GoLocation style={{fill: '#abaaad'}} /> Karachi, PK</span>
+                    <h4 className="fj-name">{props.post.companyId.name}</h4>
+                    <span className="fj-loc"><GoLocation style={{fill: '#abaaad'}} /> {props.post.address}</span>
                 </div>
             </section>
             <section className="fj-body">
-                <h4 className="fj-title">UI/UX Design Intern</h4>
+            <h4 className="fj-title">{props.post.Jobtitle}</h4>
                 <section className="fj-details">
-                    <span className="fj-allowance"><AiOutlineClockCircle style={{fill: '#abaaad'}} />Paid</span>
-                    <span className="fj-time"><BsClock style={{fill: '#abaaad'}} />2 Months</span>
+                    <span className="fj-allowance"><AiOutlineClockCircle style={{fill: '#abaaad'}} />{props.post.paid?"paid":"Unpaid"}</span>
+                    <span className="fj-time"><BsClock style={{fill: '#abaaad'}} /> Months</span>
                 </section>
             </section>
-            <p className="fj-summary">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut saepe corrupti alias harum esse totam.</p>
+            <p className="fj-summary">{props.post.jobDescription}</p>
             <section className="fj-skills-req">
                 <section className="candidate-card-skills">
-                    <span className='skill-tag'>Figma</span>
-                    <span className='skill-tag'>Adobe XD</span>
-                    <span className='skill-tag'>PSD</span>
-                    <span className='skill-tag'>App</span>
-                    <span className='skill-tag'>Digital</span>
+                    {/* {props.post.skill.map((i,j)=>{
+                        return <span  key={j}className='skill-tag'>{i}</span>
+                    })
+
+                    } */}
+                  
                 </section>
             </section>
                 <section className="fj-footer">
-                    <div className="fj-pay">$500<sub>/Hour</sub></div>
+                    <div className="fj-pay">
+                        $
+                        {props.post.paid?props.post.price:0}<sub>/Hour</sub></div>
                     <a className="fj-apply">Apply Now</a>
             </section>
         </div>
