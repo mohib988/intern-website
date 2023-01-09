@@ -5,7 +5,7 @@ import { BsClock } from 'react-icons/bs'
 
 
 
-const FindJobCard = ({post}) => {
+const FindJobCard = (props) => {
     return (
         <div className='find-job-card'>
             {/* <img src="https://xsgames.co/randomusers/avatar.php?g=female" alt="" className="cp-logo" />
@@ -16,34 +16,34 @@ const FindJobCard = ({post}) => {
             </span>
             <a className="cp-jobs">12 Jobs Open</a> */}
             <section className="fj-header">
-                <img src="https://xsgames.co/randomusers/avatar.php?g=female" alt="" className="fj-logo" />
+                <img src={"http://localhost:5000/"+props.post.companyId.profilePicture} alt="" className="fj-logo" />
                 <div className="fj-name-loc">
-                    <h4 className="fj-name">{post.companyName}</h4>
-                    <span className="fj-loc"><GoLocation style={{fill: '#abaaad'}} /> {post.address}</span>
+                    <h4 className="fj-name">{props.post.companyId.name}</h4>
+                    <span className="fj-loc"><GoLocation style={{fill: '#abaaad'}} /> {props.post.address}</span>
                 </div>
             </section>
             <section className="fj-body">
-            <h4 className="fj-title">{post.title}</h4>
+            <h4 className="fj-title">{props.post.Jobtitle}</h4>
                 <section className="fj-details">
-                    <span className="fj-allowance"><AiOutlineClockCircle style={{fill: '#abaaad'}} />{post.paid?"paid":"Unpaid"}</span>
-                    <span className="fj-time"><BsClock style={{fill: '#abaaad'}} />{post.month} Months</span>
+                    <span className="fj-allowance"><AiOutlineClockCircle style={{fill: '#abaaad'}} />{props.post.paid?"paid":"Unpaid"}</span>
+                    <span className="fj-time"><BsClock style={{fill: '#abaaad'}} /> Months</span>
                 </section>
             </section>
-            <p className="fj-summary">{post.requirement}</p>
+            <p className="fj-summary">{props.post.jobDescription}</p>
             <section className="fj-skills-req">
                 <section className="candidate-card-skills">
-                    {post.skill.map((i,j)=>{
+                    {/* {props.post.skill.map((i,j)=>{
                         return <span  key={j}className='skill-tag'>{i}</span>
                     })
 
-                    }
+                    } */}
                   
                 </section>
             </section>
                 <section className="fj-footer">
                     <div className="fj-pay">
                         $
-                        {post.paid?post.price:0}<sub>/Hour</sub></div>
+                        {props.post.paid?props.post.price:0}<sub>/Hour</sub></div>
                     <a className="fj-apply">Apply Now</a>
             </section>
         </div>

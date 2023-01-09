@@ -3,10 +3,10 @@ import {  Red_EndLoading, Red_FetchBySearch, Red_StartLoading,Red_FetchAllPosts 
 
 export const getPostsBySearch = (query) => async (dispatch) => {
     try {
-      dispatch(Red_StartLoading);
+      dispatch(Red_StartLoading());
       const {data:{data}}= await api.fetchPostsBySearch(query);
 dispatch(Red_FetchBySearch(data))
- dispatch(Red_EndLoading)
+ dispatch(Red_EndLoading())
       console.log(data)
 
     } catch (error) {
@@ -17,11 +17,11 @@ dispatch(Red_FetchBySearch(data))
   
 export const getAllPost = (query) => async (dispatch) => {
     try {
-      dispatch(Red_StartLoading);
+      dispatch(Red_StartLoading());
       const {data:{data}}= await api.getAllPost(query);
 dispatch(Red_FetchAllPosts(data))
- dispatch(Red_EndLoading)
-      console.log(data)
+console.log(data)
+dispatch(Red_EndLoading())
 
     } catch (error) {
       console.log(error);

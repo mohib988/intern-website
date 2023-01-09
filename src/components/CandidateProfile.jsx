@@ -24,10 +24,14 @@ const CandidateProfile = () => {
 const dispatch=useDispatch()
 
 const {currentCandidate,isLoading}=useSelector(state=>state.centralStore)
+
   useEffect(() => {
-    dispatch(getOneCandidate("63a33edc17bc70cd6b8121c9"))
-console.log(currentCandidate)
-  
+  if(id){
+
+        dispatch(getOneCandidate("63a33edc17bc70cd6b8121c9"))
+    console.log(currentCandidate)
+  }
+    
   }, [id]);
   return (
    

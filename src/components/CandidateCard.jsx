@@ -2,15 +2,15 @@ import React from 'react'
 import { AiOutlineClockCircle } from 'react-icons/ai'
 import { GoLocation } from 'react-icons/go'
 
-const CandidateCard = () => {
+const CandidateCard = (props) => {
   return (
     <>
         <div className="candidate-card">
             <section className="candidate-card-header">
-                <img src="https://xsgames.co/randomusers/avatar.php?g=female" alt="" className="candidate-card-img" />
+                <img src={"http://localhost:5000/"+props.profile.profilePicture} alt="" className="candidate-card-img" />
                 <div className="candidate-card-details">
-                    <h2 className="candidate-card-name">John Doe</h2>
-                    <span className='candidate-card-position'>UI/UX Designer</span>
+                    <h2 className="candidate-card-name">{props.profile.name}</h2>
+                    <span className='candidate-card-position'>{props.profile.field}</span>
                 </div>
             </section>
             <p className="candidate-card-summary">
@@ -24,8 +24,8 @@ const CandidateCard = () => {
                 <span className='skill-tag'>Digital</span>
             </section>
             <section className="candidate-card-footer">
-                <div className="candidate-location"><GoLocation style={{fill: '#abaaad'}} />Karachi</div>
-                <div className="candidate-pay"><AiOutlineClockCircle style={{fill: '#abaaad'}} />$45/hour</div>
+                <div className="candidate-location"><GoLocation style={{fill: '#abaaad'}} />{props.profile.name}</div>
+                <div className="candidate-pay"><span> {props.profile.gender}</span></div>
             </section>
         </div>
     </>

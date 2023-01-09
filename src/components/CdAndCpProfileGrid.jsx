@@ -11,7 +11,11 @@ import ReactLoading from 'react-loading';
 import { useSelector } from 'react-redux'
 
 const CdAndCpProfileGrid = (props) => {
-    const {isLoading}=useSelector(state=>state.centralStore)
+    const {isLoading}=useSelector
+    (state=>state.centralStore)
+    if(isLoading){
+        return   <ReactLoading color='black' type="spin" height={337} width={115} />
+        }
     let weProps = {
         logo: <FcGoogle />,
         title : "Crisis Intervention Specialist",
@@ -29,9 +33,7 @@ const CdAndCpProfileGrid = (props) => {
         time : "2017 - 2018",
         desc : "Minimum 3 shifts a week Monday - Friday with the ability to work an 8 to 9 hour time each week between the hours of 7 A.M. - 7 P.M."
       };
-      if(isLoading){
-      return   <ReactLoading color='black' type="spin" height={337} width={115} />
-      }
+      
     return (
         <>
             <div className="profile-body-grid">

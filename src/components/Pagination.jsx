@@ -12,7 +12,7 @@ const Pagination = ({number,type}) => {
             <FaAngleLeft className='pg-icon' />
             <ul className="pagination-list">    
                 { Array(number).fill().map((i,j)=> 
-                 <Link to={`/${type}/?page=${j+1}`} > {j+1}<li key={j} ></li></Link>
+                 <Link to={`/${type}/?page=${j+1}`}  key={j}> {j+1}<li key={j} ></li></Link>
               )}
             </ul>
             <FaAngleRight className='pg-icon' />

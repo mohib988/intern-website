@@ -3,17 +3,17 @@
 import React from 'react'
 import { GoLocation } from 'react-icons/go'
 
-const CompanyCard = ({company}) => {
+const CompanyCard = (props) => {
   return (
     <>
         <div className="cp-card">
-            <img src="https://xsgames.co/randomusers/avatar.php?g=female" alt="" className="cp-logo" />
-            <h3 className="cp-name">Google</h3>
+            <img src={"http://localhost:5000/"+props.company.profilePicture} alt="" className="cp-logo" />
+            <h3 className="cp-name">{props.company.name}</h3>
             <span className="cp-location">
                 <GoLocation style={{fill: '#abaaad'}} />
-                <span>Karachi, PK</span>
+                <span>{props.company.address}</span>
             </span>
-            <a className="cp-jobs">12 Jobs Open</a>
+            <a className="cp-jobs">{props.company.numberOfEmployee+" Employees"}</a>
         </div>
     </>
   )

@@ -36,7 +36,7 @@ dispatch(getOneCompany("63b6551826465c940817bad7"))
   return (
     <div className='company-profile-container'>
          <CdAndCpProfileHeader profile={{...currentCompany,type:"company"}} />
-        {/* <CdAndCpProfileGrid {...gridProps} />  */}
+        <CdAndCpProfileGrid profile={{...currentCompany,type:"company"}} /> 
     </div>
   )
 }
