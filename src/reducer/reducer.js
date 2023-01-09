@@ -49,6 +49,7 @@ state.currentCompany={...(action.payload),type:"company"}
 
        },
 
+
       }
 })
 export const {Red_EndLoading,Red_FetchAllPosts,Red_FetchBySearch,Red_Login,Red_Logout,Red_StartLoading,Red_FetchAllCandidates,Red_FetchAllCompanies,Red_FetchCurrentCandidate,Red_FetchCurrentCompany}= centralStore.actions;

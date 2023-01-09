@@ -1,7 +1,28 @@
-import React from 'react'
+import React,{useState} from 'react'
 import { AiOutlineLogin } from 'react-icons/ai'
-
+import { useDispatch } from 'react-redux';
+import { signin } from '../actions/user';
+import { useNavigate } from 'react-router-dom';
 const Login = () => {
+    const dispatch=useDispatch()
+    const initialState = {  email: '', password: '', };
+    const navigate=useNavigate()
+    const [form, setForm] = useState(initialState);
+    const [visibility, setVisibility] = useState("hidden");
+    const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value })
+    console.log(form);
+
+const onsubmit=async (form)=>{
+
+const user= await dispatch(signin(form))
+if(user){
+navigate("/")
+}else{
+setVisibility("visible")
+}
+// console.log(user)
+}
+
   return (
     <div className="register-wrapper">
         <div className="register-container">
@@ -27,11 +48,18 @@ const Login = () => {
                 <span className="border">
                     <span className="email-register-header">Or sign in with e-mail</span>
                 </span>
-                <form className="register-form">
-                    <input type="email" className="register-input" placeholder="Email" />
-                    <input type="password" className="register-input" placeholder="Password" />
-                    <button className="register-btn"><AiOutlineLogin style={{fill: "white"}} className='user-logo' />Sign In</button>
-                </form>
+                {/* <form className="register-form"> */}
+                    <input type="email" className="register-input"   onChange=
+                    {handleChange}
+                    name="email" placeholder="email" />
+                    <input type="password" className="register-input"
+                    name='password'  onChange={handleChange}placeholder="password" />
+                    <span style={{visibility:visibility,fontWeight:"bold",color:"red"}}>wrong credentials</span>
+                    <button  onClick={(e)=>{
+e.preventDefault()
+onsubmit(form)
+                    }} className="register-btn"><AiOutlineLogin style={{fill: "white"}} className='user-logo' />Sign In</button>
+                {/* </form> */}
                 <span className="register-footer">Not Registered Yet? <a href="/login">Sign up</a></span>
             </section>
             <section className="register-illustration">
