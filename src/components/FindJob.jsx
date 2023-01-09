@@ -6,7 +6,7 @@ import FindJobCard from './FindJobCard'
 import { useDispatch,useSelector} from 'react-redux'
 import {  useLocation } from 'react-router-dom';
 import { useEffect } from 'react'
-import {getAllPost} from '../actions/jobPost.js'
+import {getAllPost,getPostsBySearch} from '../actions/jobPost.js'
 import ReactLoading from "react-loading"
 function useQuery() {
   return new URLSearchParams(useLocation().search);}
@@ -20,21 +20,33 @@ const FindJob = () => {
     const {posts,isLoading}=useSelector(state=>state.centralStore)
    const query=useQuery()
    const page=query.get('page')||1
+   const search=query.get('search')
    
     useEffect(()=>{
-   dispatch(getAllPost(page))
-    },[page])
+      if(search){
+dispatch(getPostsBySearch(search))
+      }
+      else{
+
+        dispatch(getAllPost(page))
+      }
+    },[page,search])
     if(isLoading){
       return   <ReactLoading color='black' type="spin" height={337} width={115} />
     }
+    if(!(posts.length>0)){
+      return   <h1 style={{width:"100vw",height:"50vh",fontSize:"10vh" }}> sorry No posts</h1>
+    }
 
   return (
-    <div className='find-job-container'>
-        <section className="find-job-grid">
-            <Filter />
-            <CardsGrid  tomap={posts} type={"job"} />
-        </section>
-    </div>
+    
+      <div className='find-job-container'>
+      <section className="find-job-grid">
+      <Filter />
+      <CardsGrid  tomap={posts} type={"job"} />
+      </section>
+      </div>
+  
   )
 }
 

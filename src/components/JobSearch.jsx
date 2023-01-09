@@ -5,32 +5,24 @@ import { BsHandbag, BsGrid3X3Gap } from 'react-icons/bs';
 import { ReactSearchAutocomplete } from 'react-search-autocomplete'
 import {items} from "../assets/data/items.js"
 import { useDispatch,useSelector } from 'react-redux';
-
+import { Navigate, useNavigate } from 'react-router-dom';
 import {getPostsBySearch} from "../actions/jobPost.js"
 
 const JobSearch = () => {
+  const navigate=useNavigate()
   const [result, setResult] = useState("");
   // note: the id field is mandatory
   const {posts}=useSelector((state)=>state.centralStore)
 const dispatch=useDispatch()  
-
+ 
+const [searchItem,setSearchItem]=useState("")
   const handleOnSearch = (string, results) => {
-dispatch(getPostsBySearch(string))
-// onSearch will have as the first callback parameter
+
 // the string searched and for the second the results.
-    // console.log( string,results)
-    
-console.log(string,results)  
-  }
+    console.log( string,results)
+setSearchItem(string)    
+ }
 
-  const handleOnHover = (result) => {
-    // the item hovered
-    // document.getElementById("one").value=result
-
-    // console.log(posts)
-    
-    setResult(result.name)
-  }
   
   const handleOnSelect = (item) => {
     // the item selected
@@ -38,9 +30,6 @@ console.log(string,results)
     console.log(item)
   }
 
-  const handleOnFocus = () => {
-    console.log('Focused')
-  }
 
   const formatResult = (item) => {
     return (
@@ -74,16 +63,19 @@ console.log(string,results)
           <ReactSearchAutocomplete 
           items={items}
           onSearch={handleOnSearch}
-            onHover={handleOnHover}
             onSelect={handleOnSelect}
-            onFocus={handleOnFocus}
             autoFocus
             formatResult={formatResult}
             // inputSearchString={result}
          
           />
           </div>
-            <button className='job-search-button'> <FaSistrix className='search-logo' /> Search</button>
+            <button 
+            onClick={()=>{
+navigate(`job/?search=${searchItem}`)
+            }}
+            className='job-search-button'> <FaSistrix className='search-logo'  
+/> Search</button>
         </div>
     </div>
   )
