@@ -29,9 +29,7 @@ dispatch(getAllCompany(page))
         <section className="filter-cards-grid">
             <Filter />
 
-            <CardsGrid cardType=
-            {<CompanyCard />}
-            qty={8} /> 
+            <CardsGrid  tomap={companies} type={"companies"}/> 
          
       
         </section>
