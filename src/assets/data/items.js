@@ -13,6 +13,18 @@ export const items = [
     },
     {
       id: 3,
+      name: 'mongoDB'
+    },
+    {
+      id: 3,
+      name: 'mongoAtlas'
+    },
+    {
+      id: 3,
+      name: 'MernStack'
+    },
+    {
+      id: 3,
       name: 'PHP'
     },
     {

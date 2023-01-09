@@ -9,8 +9,19 @@ const Login = () => {
     const navigate=useNavigate()
     const [form, setForm] = useState(initialState);
     const [visibility, setVisibility] = useState("hidden");
-    const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value })
-    console.log(form);
+    const [visibility2, setVisibility2] = useState("hidden");
+
+    const handleChange = (e) =>{
+
+        setForm({ ...form, [e.target.name]: e.target.value })
+        if(form.email.includes("@")){
+            setVisibility2("hidden")
+        }else{
+            setVisibility2("visible")
+            
+        }
+        console.log(form);
+    }
 
 const onsubmit=async (form)=>{
 
@@ -52,6 +63,7 @@ setVisibility("visible")
                     <input type="email" className="register-input"   onChange=
                     {handleChange}
                     name="email" placeholder="email" />
+                     <span style={{visibility:visibility2,fontWeight:"bold",color:"blue"}}>please Include @</span>
                     <input type="password" className="register-input"
                     name='password'  onChange={handleChange}placeholder="password" />
                     <span style={{visibility:visibility,fontWeight:"bold",color:"red"}}>wrong credentials</span>

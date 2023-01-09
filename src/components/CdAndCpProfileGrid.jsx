@@ -60,25 +60,22 @@ const CdAndCpProfileGrid = (props) => {
                     { props.profile?.type === 'candidate' && <section className="professional-skills">
                         <h3>Professional Skills</h3>
                         <section className="candidate-profile-skills">
-{
+{isLoading? 
+  <ReactLoading color='black' type="spin" height={337} width={115} />
+    :
                   (props.profile?.skill).map((i,j)=>{
                       return  <span key={j}>{i}</span>}
                 ) 
            
         }
-        
-    
-    
-    
-
-
                         </section>
                     </section>}
                     { props.profile?.type === 'candidate' && <section className="work-experience">
                         <h3>Work Experience</h3>
                         <div className="we-card-container">
-                  
-                            {(props.profile?.experiences).map((i,j)=>{
+                        {isLoading? 
+  <ReactLoading color='black' type="spin" height={337} width={115} />
+    :                          (props.profile?.experiences).map((i,j)=>{
                                 return <ProfileCard prop={i} key={j}/>    
                             })
                         }
@@ -87,7 +84,10 @@ const CdAndCpProfileGrid = (props) => {
                     { props.profile?.type === 'candidate' && <section className="education">
                         <h3>Education</h3>
                         <div className="ed-card-container">
-                            {(props.profile?.educations).map((i,j)=>{
+{isLoading ? 
+  <ReactLoading color='black' type="spin" height={337} width={115} />
+    :
+                            (props.profile?.educations).map((i,j)=>{
                                 return <ProfileCard prop={i} key={j}/>    
                             })
                         }

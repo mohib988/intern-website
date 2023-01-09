@@ -36,3 +36,12 @@ dispatch(Red_EndLoading())
       console.log(error);
     }
   };
+export const uploadCv = (form) => async (dispatch) => {
+    try {
+      dispatch(Red_StartLoading())
+      const {data:{data}}= await api.uploadCv(form);
+      dispatch(Red_FetchCurrentCandidate(data))
+    } catch (error) {
+      console.log(error);
+    }
+  };

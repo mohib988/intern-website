@@ -1,9 +1,60 @@
-import React from 'react'
+import React,{useState} from 'react'
+import Axios from "axios"
 import { FiDownload } from 'react-icons/fi'
 import { GoLocation } from 'react-icons/go'
 import { BsTelephone } from 'react-icons/bs'
+import { Link,useNavigate} from 'react-router-dom'
 
 const CdAndCpProfileHeader = (props) => {
+    const navigate=useNavigate()
+    const [fileinfo, setFileinfo] =useState({
+        file:[],
+        filepreview:null,
+       });
+      
+       const handleInputChange = (event) => {
+        setFileinfo({
+          file:event.target.files[0],
+          filepreview:URL.createObjectURL(event.target.files[0]),
+        }
+      );
+      
+      }
+
+
+    const user=JSON.parse(localStorage.getItem("profile"))?.user
+    function check(){
+
+         if(props.profile.type === 'candidate') {
+            if ((props.profile.cv)==="") {
+if(user._id==props.profile.userId){
+
+   return <div><input type="file" className="form-control" name="upload_file"  onChange={handleInputChange} />
+<button className="download-cv" onClick={()=>{
+    const formdata = new FormData(); 
+    formdata.append('image', fileinfo.file);
+    formdata.append('id',props.profile.userId);
+
+    Axios.post("http://localhost:5000/user/uploadCv", formdata,{   
+        headers: { "Content-Type": "multipart/form-data" } 
+})
+.then(res => { 
+  console.warn(res);
+})
+}} > submit it  </button>
+        </div>}
+            }
+            else{    
+return <div><img width="200px"height="200px" src={`http://localhost:5000/${props.profile.cv}`} alt="m" />
+<h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cv</h1></div>
+   }
+            
+            }  
+             else{
+return <button className="contact-us"><BsTelephone className='phone' /> Contact Us</button>} 
+
+
+    }
     return (
         <>
             <img src={"http://localhost:5000/"+(props.profile?.profilePicture)} className="cp-cover-img"></img>
@@ -22,10 +73,8 @@ const CdAndCpProfileHeader = (props) => {
                     </div>
                 </div>
                 <div className="profile-header-right">
-                    {props.profile.type === 'candidate' ? 
-                    <button className="download-cv"><FiDownload className='download' /> Download CV</button> 
+                        { check()}
                     
-                     : <button className="contact-us"><BsTelephone className='phone' /> Contact Us</button> }  
                 </div>
             </div>
         </>

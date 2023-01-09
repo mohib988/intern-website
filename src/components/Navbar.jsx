@@ -1,7 +1,9 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link,useNavigate } from 'react-router-dom'
 
 const Navbar = () => {
+const navigate=useNavigate()
+  const user=JSON.parse(localStorage.getItem("profile"))?.user
   return (
     <nav className="navbar-container">
       <Link to="/" className="navbar-logo">
@@ -12,10 +14,17 @@ const Navbar = () => {
           <li><Link to="/job">Find A Job</Link></li>
           <li><Link to="/companies">Recruiters</Link></li>
           <li><Link to="/candidates">Candidates</Link></li>
-          <li><Link to="/contact">Contact</Link></li>
-        </ul>
+          { user ?
+          <li><Link to={`/candidates/${user._id}`}>your Profile</Link></li>
+        :<div></div>}
+          </ul>
       </div>
+      {!user?
       <Link className="navbar-register" to='/register'>Register</Link>
+    : <button className="navbar-register" onClick={()=>{
+      localStorage.clear()
+      navigate("/login")
+    }}>Logout</button>}
     </nav>
   )
 }
