@@ -8,6 +8,7 @@ export const fetchPostsBySearch = (query) => API.get(`/jobPost/search/query?titl
 export const getAllPost = (query) => API.get(`/jobPost/getPost/query?page=${query}`);
 
 export const getAllCompany = (query) => API.get(`/company/getAllCompany/query?page=${query}`);
+export const getOneCompany = (id) => API.get(`/company/getOneCompany/${id}`);
 
 
 export const getOneUser = (id) => API.get(`/user/getuser/${id}`);

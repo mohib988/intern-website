@@ -6,7 +6,7 @@ import { BsTelephone } from 'react-icons/bs'
 const CdAndCpProfileHeader = (props) => {
     return (
         <>
-            <img src={"http://localhost:5000/"+(props.profile?.type ==="candidate" ?props.profile.profilePicture:props.profile.companyPicture)} className="cp-cover-img"></img>
+            <img src={"http://localhost:5000/"+(props.profile?.profilePicture)} className="cp-cover-img"></img>
             <div className="profile-header">
                 <div className="profile-header-left">
                     <img src={"http://localhost:5000/"+
@@ -17,7 +17,7 @@ const CdAndCpProfileHeader = (props) => {
                         
                         <span className="profile-pos">{props.profile?.field}</span> 
                         
-                        : <span className="profile-tagline">{props.profile?.companyDomain}</span>}  
+                        : <span className="profile-tagline">{props.profile?.field}</span>}  
                         <span className="profile-loc"><GoLocation style={{ fill: '#abaaad' }} />{props.profile?.address}</span>
                     </div>
                 </div>

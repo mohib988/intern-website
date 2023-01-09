@@ -3,7 +3,7 @@ import {createSlice} from "@reduxjs/toolkit"
 const initialState={
     posts:[],
     companies:[],
-    currentCompany:null,
+    currentCompany:{},
     currentCandidate:{},
 candidates:[],
     isLoading:true,
@@ -44,8 +44,12 @@ state.companies=action.payload
 state.currentCandidate={...(action.payload),type:"candidate"}
 
        },
+      Red_FetchCurrentCompany:(state,action)=>{
+state.currentCompany={...(action.payload),type:"company"}
+
+       },
 
       }
 })
-export const {Red_EndLoading,Red_FetchAllPosts,Red_FetchBySearch,Red_Login,Red_Logout,Red_StartLoading,Red_FetchAllCandidates,Red_FetchAllCompanies,Red_FetchCurrentCandidate}= centralStore.actions;
+export const {Red_EndLoading,Red_FetchAllPosts,Red_FetchBySearch,Red_Login,Red_Logout,Red_StartLoading,Red_FetchAllCandidates,Red_FetchAllCompanies,Red_FetchCurrentCandidate,Red_FetchCurrentCompany}= centralStore.actions;
 export default centralStore.reducer;

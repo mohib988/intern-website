@@ -1,6 +1,11 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import CdAndCpProfileGrid from './CdAndCpProfileGrid';
 import CdAndCpProfileHeader from './CdAndCpProfileHeader'
+import { useParams } from 'react-router-dom';
+import { useDispatch,useSelector } from 'react-redux';
+import { getOneCandidate } from '../actions/user';
+import ReactLoading from "react-loading"
+import { getOneCompany } from '../actions/company';
 
 const CompanyProfile = () => {
   let headerProps = {
@@ -16,11 +21,22 @@ const CompanyProfile = () => {
     name: 'Dribbble Inc.',
     desc: 'The AliStudio Design team has a vision to establish a trusted platform that enables productive and healthy enterprises in a world of digital and remote everything, constantly changing work patterns and norms, and the need for organizational resiliency. The ideal candidate will have strong creative skills and a portfolio of work which demonstrates their passion for illustrative design and typography. This candidate will have experiences in working with numerous different design platforms such as digital and print forms.',
   };
-  
+  const dispatch=useDispatch()
+  const {currentCompany,isLoading}=useSelector(state=>state.centralStore)
+  const {id}=useParams()
+  useEffect(()=>{
+dispatch(getOneCompany("63b6551826465c940817bad7"))
+  },[id])
+
+//  if(isLoading){
+//   return      <ReactLoading color='black' type="spin" height={337} width={115} />
+
+//  }
+
   return (
     <div className='company-profile-container'>
-        <CdAndCpProfileHeader {...headerProps} />
-        <CdAndCpProfileGrid {...gridProps} />
+         <CdAndCpProfileHeader profile={{...currentCompany,type:"company"}} />
+        {/* <CdAndCpProfileGrid {...gridProps} />  */}
     </div>
   )
 }
