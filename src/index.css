@@ -782,6 +782,21 @@ html {
     height: 100%;
 }
 
+#register_type {
+    margin-bottom: 2rem;
+    padding: 2rem;
+    background-color: var(--input-background-color);
+    color: var(--input-text-color);
+    border: none;
+    border-radius: 5px;
+}
+
+#register_type:hover {
+    border: 1px solid var(--input-text-color);
+    background-color: white;
+    color: black;
+}
+
 /* ! Browse Candidates */
 .browse-candidates-container {
     max-width: 120rem;
