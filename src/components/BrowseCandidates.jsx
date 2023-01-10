@@ -31,8 +31,8 @@ const BrowseCandidates = () => {
       <CdAndCpHeader type="candidates" />
       <p className="candidates-shown">Showing <span>41-60</span> of <span>944</span> jobs</p>
       <section className="browse-candidates-grid">
-        {candidates.map((i) => {
-          return <Link to={`${i.userId}`} style={{ textDecoration: 'none' }} ><CandidateCard profile={i} /></Link>
+        {candidates.map((i,j) => {
+          return <Link to={`${i.userId}`} style={{ textDecoration: 'none' }} ><CandidateCard  key={j} profile={i} /></Link>
         })
 
         }
