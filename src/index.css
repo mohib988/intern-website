@@ -793,6 +793,21 @@ background-color: blue;
     height: 100%;
 }
 
+#register_type {
+    margin-bottom: 2rem;
+    padding: 2rem;
+    background-color: var(--input-background-color);
+    color: var(--input-text-color);
+    border: none;
+    border-radius: 5px;
+}
+
+#register_type:hover {
+    border: 1px solid var(--input-text-color);
+    background-color: white;
+    color: black;
+}
+
 /* ! Browse Candidates */
 .browse-candidates-container {
     max-width: 120rem;
@@ -1613,4 +1628,220 @@ background-color: blue;
     max-width: 120rem;
     padding: 2rem;
     margin: auto;
+}
+
+/* ! Create Candidate Profile */
+.cr-cd-container {
+    display: flex;
+    flex-direction: column;
+    max-width: 120rem;
+    padding: 2rem;
+    margin: auto;
+    gap: 2rem;
+}
+
+.cr-cd-profile {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    border-bottom: 1px solid var(--ternary-text-color);
+    padding-bottom: 4rem;
+}
+
+.cr-cd-profile h2 {
+    font-size: 2.5rem;
+}
+
+.cr-cd-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.cr-cd-header h2 {
+    font-size: 4rem;
+}
+
+.cr-cd-header span {
+    font-size: 1.2rem;
+    color: var(--ternary-text-color);
+}
+
+.cr-cd-avatar {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.cr-cd-upload {
+    padding: 1rem;
+    background-color: var(--secondary-text-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.cr-cd-upload:hover {
+    background-color: var(--button-background-color);
+    transition: 0.2s;
+}
+
+.cr-cd-img {
+    width: 9rem;
+    height: 9rem;
+    border-radius: 10px;
+}
+
+.cr-cd-basic-details {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.basic-input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.basic-input-container label {
+    font-size: 1.3rem;
+    color: var(--input-text-color);
+}
+
+.basic-input-container input, .basic-input-container textarea {
+    background-color: var(--input-background-color);
+    color: var(--input-text-color);
+    border: none;
+    border-radius: 5px;
+    padding: 1rem;
+    /* max-width: 35rem; */
+    outline: none;
+    font-size: 1.3rem;
+}
+
+.basic-input-container input:focus, .basic-input-container textarea:focus {
+    border: 1px solid var(--input-text-color);
+    background-color: white;
+    color: black;
+}
+
+.city-input {
+    display: flex;
+    /* max-width: 35rem; */
+    gap: 2rem;
+}
+
+/* .city-input > .basic-input-container {
+    width: 17.5rem;
+} */
+
+.cr-cd-skills {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem 0 2rem 0;
+    border-bottom: 1px solid var(--ternary-text-color);
+    padding-bottom: 4rem;
+}
+
+.cr-cd-skills h2 {
+    font-size: 2.5rem;
+}
+
+.cr-cd-skills-input-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* max-width: 35rem; */
+    font-size: 2rem;
+    padding: 1rem;
+    background-color: var(--input-background-color);
+    color: var(--input-text-color);
+    border-radius: 5px;
+}
+
+.cr-cd-skills-input-container input {
+    width: 34rem;
+    border: none;
+    outline: none;
+    background-color: transparent;
+}
+
+.cr-cd-cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 35rem;
+    gap: 1.5rem;
+}
+
+.cr-cd-skill-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.2rem;
+    padding: 0.6rem;
+    border-radius: 5px;
+    background-color: #EFF3FC;
+    cursor: pointer;
+    text-align: center;
+}
+
+.cr-cd-skill-card:hover {
+    color: var(--secondary-text-color);
+    transition: 0.2s;
+}
+
+.cr-cd-info {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.2rem;
+    color: var(--ternary-text-color);
+}
+
+.cr-cd-experience, .cr-cd-education {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--ternary-text-color);
+    padding-bottom: 4rem;
+}
+
+.cr-cd-experience h2, .cr-cd-education h2 {
+    font-size: 2.5rem;
+}
+
+.cr-cd-experience-input-container, .cr-cd-education-input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.experience-time-container, .education-time-container {
+    display: flex;
+    gap: 2rem;
+}
+
+.start-date, .end-date {
+    display: flex;
+    flex-direction: column;
+}
+
+.save-profile {
+    background-color: var(--secondary-text-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    max-width: 15rem;
+    padding: 1.5rem;
+    cursor: pointer;
+}
+
+.save-profile:hover {
+    background-color: var(--button-background-color);
+    transition: 0.2s;
 }

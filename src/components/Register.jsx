@@ -31,6 +31,11 @@ const Register = () => {
                     <input type="text" className="register-input" placeholder="Username" />
                     <input type="email" className="register-input" placeholder="Email" />
                     <input type="password" className="register-input" placeholder="Password" />
+                    <input type="password" className="register-input" placeholder="Confirm Password" />
+                    <select name="register_type" id="register_type">
+                        <option value="candidate">Candidate</option>
+                        <option value="recruiter">Recruiter</option>
+                    </select>
                     <button className="register-btn"><FaUserPlus style={{fill: "white"}} className='user-logo' />Sign Up</button>
                 </form>
                 <span className="register-footer">Already have an account? <a href="/login">Log in</a></span>
