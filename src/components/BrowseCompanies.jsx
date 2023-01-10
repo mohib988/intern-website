@@ -17,10 +17,17 @@ const BrowseCompanies = () => {
  const {companies}=useSelector(state=>state.centralStore)
 const query=useQuery()
 const page=query.get('page')||1
+const search=query.get('search')
 
  useEffect(()=>{
-dispatch(getAllCompany(page))
- },[page])
+  if(search){
+    
+    dispatch(getAllCompany(search))
+  }else{
+    
+    dispatch(getAllCompany(page))
+  }
+ },[page,search])
 
 //  if()
     return (

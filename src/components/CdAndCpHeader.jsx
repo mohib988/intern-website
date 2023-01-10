@@ -1,5 +1,5 @@
 import React from 'react'
-
+import {Link} from "react-router-dom"
 const CdAndCpHeader = ({type}) => {
   const charArray = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
   return (
@@ -11,7 +11,7 @@ const CdAndCpHeader = ({type}) => {
             </p>
             <div className="box-character">
                 <ul className="box-character-list">
-                    {charArray.map((char) => (<li key={Math.random()}>{char}</li>))}
+                    {charArray.map((char) => (<Link  style={{textDecoration:"None"}} to={`?search=${char}`} key={Math.random()} >{char}</Link>))}
                 </ul>
             </div>
         </section>
