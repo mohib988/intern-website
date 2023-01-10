@@ -14,4 +14,6 @@ export const getOneCompany = (id) => API.get(`/company/getOneCompany/${id}`);
 export const getOneUser = (id) => API.get(`/user/getuser/${id}`);
 
 export const getAllUser = (query) => API.get(`/user/getAllUser/query?page=${query}`);
+export const signin = (form) => API.post("/user/signin",form);
+export const uploadCv = (form) => API.post("/user/uploadCv",form);
 

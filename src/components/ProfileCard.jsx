@@ -1,10 +1,9 @@
 // will add location here
-
+import ReactLoading from 'react-loading';
 import React from 'react'
 import { FcGoogle } from 'react-icons/fc'
 
 const ProfileCard = (props) => {
-
     return (
         <>
             <section className="pf-card">

@@ -28,7 +28,7 @@ const {currentCandidate,isLoading}=useSelector(state=>state.centralStore)
   useEffect(() => {
   if(id){
 
-        dispatch(getOneCandidate("63a33edc17bc70cd6b8121c9"))
+        dispatch(getOneCandidate(id))
     console.log(currentCandidate)
   }
     

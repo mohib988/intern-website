@@ -33,7 +33,8 @@ state.candidates=action.payload
 state.companies=action.payload
       },
       Red_Login:(state,action)=>{
-        localStorage.setItem('profile', JSON.stringify({ ...action?.data }));
+        localStorage.setItem('profile', JSON.stringify({...action?.payload}));
+
     state.userData=action.payload  
     },
       Red_Logout:(state,action)=>{
@@ -48,6 +49,7 @@ state.currentCandidate={...(action.payload),type:"candidate"}
 state.currentCompany={...(action.payload),type:"company"}
 
        },
+
 
       }
 })
