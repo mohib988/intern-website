@@ -4,6 +4,7 @@ import BrowseCompanies from "./components/BrowseCompanies"
 import CandidateProfile from "./components/CandidateProfile"
 import CompanyProfile from "./components/CompanyProfile"
 import CreateCandidateProfile from "./components/CreateCandidateProfile"
+import CreateCompanyProfile from "./components/CreateCompanyProfile"
 import FindJob from "./components/FindJob"
 import HomePageComponents from "./components/HomePageComponents"
 import Login from "./components/Login"
@@ -17,6 +18,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/createprofile" element={<CreateCandidateProfile />} />
+        <Route path="/createcompanyprofile" element={<CreateCompanyProfile />} />
         <Route element={<WithNavAndFooter />}>
           <Route path="/" element={<HomePageComponents />} />
           <Route path="/candidates" element={<BrowseCandidates />} />

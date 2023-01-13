@@ -18,12 +18,12 @@ const FindJobCard = (props) => {
             <section className="fj-header">
                 <img src={"http://localhost:5000/"+props.post.companyId.profilePicture} alt="" className="fj-logo" />
                 <div className="fj-name-loc">
-                    <h4 className="fj-name">{props.post.companyId.name}</h4>
-                    <span className="fj-loc"><GoLocation style={{fill: '#abaaad'}} /> {props.post.address}</span>
+                    <h4 className="fj-name">{props.post.jobTitle}</h4>
+                    <span className="fj-loc"><GoLocation style={{fill: '#abaaad'}} /> {props.post.location}</span>
                 </div>
             </section>
             <section className="fj-body">
-            <h4 className="fj-title">{props.post.Jobtitle}</h4>
+            <h4 className="fj-title">{props.post.jobTitle}</h4>
                 <section className="fj-details">
                     <span className="fj-allowance"><AiOutlineClockCircle style={{fill: '#abaaad'}} />{props.post.paid?"paid":"Unpaid"}</span>
                     <span className="fj-time"><BsClock style={{fill: '#abaaad'}} /> Months</span>

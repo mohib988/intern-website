@@ -27,7 +27,7 @@ const CdAndCpProfileHeader = (props) => {
 
          if(props.profile.type === 'candidate') {
             if ((props.profile.cv)==="") {
-if(user._id==props.profile.userId){
+if(user?._id==props.profile.userId){
 
    return <div><input type="file" className="form-control" name="upload_file"  onChange={handleInputChange} />
 <button className="download-cv" onClick={()=>{
