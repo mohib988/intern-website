@@ -45,3 +45,10 @@ export const uploadCv = (form) => async (dispatch) => {
       console.log(error);
     }
   };
+export const createProfile = (form) => async (dispatch) => {
+    try {
+      const {data:{data}}= await api.createProfile(form);
+    } catch (error) {
+      console.log(error);
+    }
+  };
