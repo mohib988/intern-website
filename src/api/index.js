@@ -27,3 +27,6 @@ export const deleteJobPost= (id) => API.post(`/jobPost/deleteJobPost/${id}`);
 export const deleteEducationAndExperience= (form,id) => API.post(`/user/deleteeducationAndexperience/${id}`,form);
 export const createCompany= (form) => API.post(`/company/createCompanyProfile`,form);
 export const applyForJob= (form) => API.post(`/jobPost/applyForJob`,form);
+
+
+export const getPostByArea= (form) => API.post(`/jobPost/getPostByArea`,form);
