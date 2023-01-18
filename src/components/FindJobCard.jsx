@@ -5,11 +5,13 @@ import { MdOutlineDelete } from 'react-icons/md'
 import { BsClock, BsCursor } from 'react-icons/bs'
 import { useDispatch } from 'react-redux'
 import { deleteJobPost,applyForJob } from '../actions/jobPost'
+import { useNavigate } from 'react-router-dom'
 
 
 
 
 const FindJobCard = (props) => {
+    const navigate=useNavigate()
     const dispatch=useDispatch()
     const user=JSON.parse(localStorage.getItem("profile"))?.user
     const[hover,sethover]=useState(false)
@@ -21,10 +23,18 @@ if(conf){
 dispatch(deleteJobPost(props.post._id))
 window.location.reload(true)
 }
-    }
-    const onSubmit=()=>{
-        const form={userId:user._id,postId:props.post._id,email:props.post.email,jobTitle:props.post.jobTitle}
+}
+const onSubmit=()=>{
+    if(user){
+
+        const form={userId:user?._id,postId:props.post._id,email:props.post.companyId.email,jobTitle:props.post.jobTitle}
         dispatch(applyForJob(form))
+        window.location.reload(true)
+    }else{
+        navigate("/login")
+        alert("login first")
+    }
+    // console.log(props.pos)
     }
     return (
         <div className='find-job-card'>
@@ -38,9 +48,10 @@ window.location.reload(true)
             <section className="fj-header">
                 <img src={"http://localhost:5000/"+props.post.companyId.profilePicture} alt="" className="fj-logo" />
                 <div className="fj-name-loc">
-                    {user._id==props.post.companyId.userId ? <MdOutlineDelete  
+                    {user?
+                    user?._id===props.post.companyId.userId ? <MdOutlineDelete  
                     id="MdOutlineDelete"
-                    onClick={deleteFunction}/>:<></>}
+                    onClick={deleteFunction}/>:<></>:<></>}
                     <h4 className="fj-name">{props.post.jobTitle}</h4>
                     <span className="fj-loc"><GoLocation style={{fill: '#abaaad'}} /> {props.post.location}</span>
                 </div>
@@ -68,7 +79,8 @@ window.location.reload(true)
                         $
                         {props.post.paid?props.post.price:0}<sub>/Hour</sub></div>
                         {
-                            (props.post.applied).includes(user._id)?
+
+                            (props.post.applied).includes(user?._id)?
                             <button className="fj-apply" style={{border:"2px solid white",backgroundColor:"greenyellow"}} 
                             
                             >Applied</button>:<button className="fj-apply" style={{border:"2px solid white"}} 
