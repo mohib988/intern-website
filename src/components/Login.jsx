@@ -3,6 +3,7 @@ import { AiOutlineLogin } from 'react-icons/ai'
 import { useDispatch } from 'react-redux';
 import { signin } from '../actions/user';
 import { useNavigate } from 'react-router-dom';
+import {BiShow} from "react-icons/bi"
 const Login = () => {
     const dispatch=useDispatch()
     const initialState = {  email: '', password: '', };
@@ -11,6 +12,8 @@ const Login = () => {
     const [visibility, setVisibility] = useState("hidden");
     const [visibility2, setVisibility2] = useState("hidden");
 
+    const [showPassword, setShowPassword] = useState(false);
+    const handleShowPassword = () => setShowPassword(!showPassword);
     const handleChange = (e) =>{
 
         setForm({ ...form, [e.target.name]: e.target.value })
@@ -64,8 +67,15 @@ setVisibility("visible")
                     {handleChange}
                     name="email" placeholder="email" />
                      <span style={{visibility:visibility2,fontWeight:"bold",color:"blue"}}>please Include @</span>
-                    <input type="password" className="register-input"
-                    name='password'  onChange={handleChange}placeholder="password" />
+                     <div>
+
+                    <input className="register-input"
+                    name='password'  onChange={handleChange}placeholder="password" 
+                    type={showPassword ? 'text' : 'password'} 
+                    /> 
+                    <BiShow style={{fontSize:"15px",cursor:"pointer"}} onClick ={handleShowPassword}></BiShow>
+                    </div>
+                    
                     <span style={{visibility:visibility,fontWeight:"bold",color:"red"}}>wrong credentials</span>
                     <button  onClick={(e)=>{
 e.preventDefault()
