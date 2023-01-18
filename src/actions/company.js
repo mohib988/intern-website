@@ -32,3 +32,19 @@ dispatch(Red_FetchCurrentCompany(data))
   };
 
 
+export const createCompany = (form) => async (dispatch) => {
+    try {
+      dispatch(Red_StartLoading());
+      const {data:{data}}= await api.createCompany(form);
+// dispatch(Red_FetchCurrentCompany(data))
+ dispatch(Red_EndLoading())
+
+      console.log("company")
+      console.log(data)
+
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+

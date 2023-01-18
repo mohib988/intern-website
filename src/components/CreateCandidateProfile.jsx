@@ -3,9 +3,11 @@ import { RxMagnifyingGlass } from 'react-icons/rx'
 import { AiOutlineClose, AiOutlineInfoCircle } from 'react-icons/ai'
 import { createProfile } from '../actions/user'
 import { useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 
 const CreateCandidateProfile = () => {
     const dispatch=useDispatch()
+    const user=JSON.parse(localStorage.getItem("profile"))?.user
     const initialForm={name:"",email:"",
     phoneNo:"",
     field:"",
@@ -22,7 +24,7 @@ const CreateCandidateProfile = () => {
     gender:"",
     startingDateE:"",
     endingDateE:"",
-image:""}
+image:"",userId:user._id}
     const [form, setForm] = useState(initialForm);
     const onHandleChange=(e)=>{
         setForm({ ...form, [e.target.name]: e.target.value })
@@ -32,6 +34,7 @@ image:""}
     const onHandleChange1=(e)=>{
         setForm({...form,image:e.target.files[0]})
     }
+    const navigate=useNavigate()
     
     const onSubmit=(e)=>{
         const form1=new FormData()
@@ -39,8 +42,11 @@ image:""}
         form1.append(i[0],i[1])
           
           })
+// if(user._id){
+//     dispatch(createProfile(form1))   
 
-     dispatch(createProfile(form1))   
+// }
+    navigate("/")
     }
     
     

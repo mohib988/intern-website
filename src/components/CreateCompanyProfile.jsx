@@ -2,26 +2,29 @@ import React,{useState} from 'react'
 import { RxMagnifyingGlass } from 'react-icons/rx'
 import { AiOutlineClose, AiOutlineInfoCircle } from 'react-icons/ai'
 import { createProfile } from '../actions/user'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { createCompany } from '../actions/company'
+import { useNavigate } from 'react-router-dom'
+import { BiMessageAltError } from 'react-icons/bi'
+import ReactLoading from 'react-loading';
 
 const CreateCompanyProfile = () => {
+    const {isLoading}=useSelector(state=>state.centralStore)
+    if(isLoading){
+        return   <ReactLoading color='black' type="spin" height={337} width={115} />
+      }
     const dispatch=useDispatch()
+    const navigate=useNavigate()
+    const user=JSON.parse(localStorage.getItem("profile"))?.user
     const initialForm={name:"",email:"",
     phoneNo:"",
     field:"",
     summary:"",
     country:"",
     address:"",
-    skill:"",
-    instituteName:"",
-    description:"",
-    startingDate:"",
-    endingDate:"",
-    instituteNameE:"",
-    descriptionE:"",
-    gender:"",
-    startingDateE:"",
-    endingDateE:"",
+    numberOfEmployee:0,
+    userId:user._id,
 image:""}
     const [form, setForm] = useState(initialForm);
     const onHandleChange=(e)=>{
@@ -38,9 +41,17 @@ image:""}
               Object.entries(form).map((i)=>{
         form1.append(i[0],i[1])
           
-          })
+    })
+    if( Object.values(form).some(val => val === "" || val === null || val === undefined)  ){
+        alert("please fill the form correctly ")
+        console.log(form)
+       }else{
+           if(user._id){         
+               dispatch(createCompany(form1))   
+               navigate("/")
+            }
+        }
 
-     dispatch(createProfile(form1))   
     }
     
     
@@ -93,10 +104,10 @@ image:""}
                 </div>
             </div>
             <section className="cr-cd-skills">
-                <h2>Areas</h2>
-                <div className="cr-cd-skills-input-container">
-                    <input type="text" id='skills' name="skill" onChange={onHandleChange} placeholder='Company Areas' />
-                    <RxMagnifyingGlass />
+                <h4 style={{color:"grey"}}>Employees</h4>
+                <div className="basic-input-container">
+                    <input type="number" id='employee' name="numberOfEmployee" onChange={onHandleChange} placeholder='Company employees' />
+                    
                 </div>
         
             </section>

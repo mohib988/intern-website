@@ -16,6 +16,7 @@ const CardsGrid = (props) => {
     }
 function getcomponent(name,tomap){
     if(name==="companies"){
+    
         return(
         tomap.map((i,j)=>{
             return <Link  to={`${i._id}`}style={{textDecoration: 'none' }}><CompanyCard company={i}key={j}/></Link>
