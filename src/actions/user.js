@@ -30,17 +30,84 @@ export const signin = (form) => async (dispatch) => {
       dispatch(Red_StartLoading())
       const {data:{data}}= await api.signin(form);
 dispatch(Red_Login(data))
-return data.user
 dispatch(Red_EndLoading())
-    } catch (error) {
+return data.user
+} catch (error) {
+      console.log(error);
+    }
+  };
+export const signup= (form) => async (dispatch) => {
+    try {
+      dispatch(Red_StartLoading())
+      const {data:{data}}= await api.signup(form);
+dispatch(Red_Login(data))
+dispatch(Red_EndLoading())
+return data.user
+} catch (error) {
       console.log(error);
     }
   };
 export const uploadCv = (form) => async (dispatch) => {
     try {
       dispatch(Red_StartLoading())
+      dispatch(Red_StartLoading())
       const {data:{data}}= await api.uploadCv(form);
       dispatch(Red_FetchCurrentCandidate(data))
+    } catch (error) {
+      console.log(error);
+    }
+  };
+export const createProfile = (form) => async (dispatch) => {
+    try {
+      const {data:{data}}= await api.createProfile(form);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  export const postSkillOrSummary = (form) => async (dispatch) => {
+    try {
+      console.log(form)
+      dispatch(Red_StartLoading())
+      const {data:{data}}= await api.postSkillOrSummary(form)
+      dispatch(Red_EndLoading())
+      console.log(data)
+
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  export const addEducationOrExperience = (form) => async (dispatch) => {
+    try {
+      console.log(form)
+      dispatch(Red_StartLoading())
+      const {data:{data}}= await api.addEducationOrExperience(form)
+      dispatch(Red_EndLoading())
+      console.log(data)
+
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  export const updateEducationOrExperience = (form,id) => async (dispatch) => {
+    try {
+      console.log(form)
+      dispatch(Red_StartLoading())
+      const {data:{data}}= await api.updateEducationOrExperience(form,id)
+      dispatch(Red_EndLoading())
+      console.log(data)
+
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  export const deleteEducationAndExperience = (form,id) => async (dispatch) => {
+    try {
+      console.log(form)
+      dispatch(Red_StartLoading())
+      const {data:{data}}= await api.deleteEducationAndExperience(form,id)
+      dispatch(Red_EndLoading())
+      console.log(data)
+
     } catch (error) {
       console.log(error);
     }

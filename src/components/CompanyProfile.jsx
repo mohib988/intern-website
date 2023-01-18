@@ -25,7 +25,7 @@ const CompanyProfile = () => {
   const {currentCompany,isLoading}=useSelector(state=>state.centralStore)
   const {id}=useParams()
   useEffect(()=>{
-dispatch(getOneCompany("63b6551826465c940817bad7"))
+dispatch(getOneCompany(id))
   },[id])
 
 //  if(isLoading){

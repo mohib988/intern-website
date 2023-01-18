@@ -1926,3 +1926,74 @@ background-color: rgb(91, 91, 242);
         display: none;
     }
 }
+/* input boxes for skill and summary */
+
+.inputBox {
+    width: 100vw;
+    height: 100vh;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: fixed;
+    font-size: larger;
+    }
+     .inputBox{
+      background-color:rgba(49,49,49,0.8);
+     }
+     .inputBox2 h1{
+        font-size:xx-large;
+
+     }
+     .inputBox2{
+        transform: translateY(100px);
+    margin: auto;
+    background-color: beige;
+    width: 30vw;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    border: 2px solid black;
+    
+    }
+    .inputBox2 .skillandsummaryinput{
+      /* width: fit-content; */
+      width: 98%;
+      height: 7vh;
+      margin-bottom: 10px; 
+      border: 2px solid rgba(0, 0, 0, 0.55); 
+      border-radius: 3px;
+      font-size: larger;
+      
+    }
+    .buttonHolder{
+      display: flex;
+      width: 99%;
+      flex-direction:row-reverse;
+      gap: 5px;
+    }
+    .buttonHolder button{
+      /* width: 20%; */
+      height: 35px;
+      color: rgba(255, 255, 255, 0.876);
+      font-weight:700;
+      background-color: var(--secondary-text-color);
+      border-radius: 5px;
+      border: 3px solid white;
+      margin-bottom: 10px;
+      margin-top: 5px;
+    
+    }
+    
+ #MdOutlineDelete{
+     margin-left:85px;
+     margin-top:-10px ;
+    font-size:18px;
+        border-radius:5px;
+cursor:pointer;
+ }
+     #MdOutlineDelete:hover{
+
+background-color:rgba(0, 0, 0, 0.3)
+
+     }

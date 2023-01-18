@@ -21,10 +21,11 @@ const search=query.get('search')
 
  useEffect(()=>{
   if(search){
-    
-    dispatch(getAllCompany(search))
+    let type="search"
+    dispatch(getAllCompany(search,type))
   }else{
     
+    let type="page"
     dispatch(getAllCompany(page))
   }
  },[page,search])

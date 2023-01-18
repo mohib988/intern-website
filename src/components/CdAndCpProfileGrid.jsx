@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState} from 'react'
 import OverviewDetailTag from './OverviewDetailTag'
 import ProfileCard from './ProfileCard'
 import { GiHandBag } from 'react-icons/gi'
@@ -6,16 +6,39 @@ import { BsCurrencyDollar } from 'react-icons/bs'
 import { AiOutlineFieldTime } from 'react-icons/ai'
 import { FaLanguage } from 'react-icons/fa'
 import { FcGoogle, FcDribbble } from 'react-icons/fc'
+import { MdOutlineDelete } from 'react-icons/md'
 import { FiMail } from 'react-icons/fi'
+import {CiEdit} from "react-icons/ci"
+import {IoMdAddCircleOutline} from "react-icons/io"
 import ReactLoading from 'react-loading';
 import { useSelector } from 'react-redux'
+import InputSkillAndSummary from './InputSkillAndSummary'
+import InputEducationAndExperience from './InputEducationAndExperience'
 
 const CdAndCpProfileGrid = (props) => {
     const {isLoading}=useSelector
-    (state=>state.centralStore)
-    if(isLoading){
-        return   <ReactLoading color='black' type="spin" height={337} width={115} />
-        }
+(state=>state.centralStore)
+const [summary,setsummary]=useState(false);
+const [skill,setskill]=useState(false);
+const [InputType,setInputType]=useState("");
+  const myfunction=()=>{
+    setsummary(false)
+    return
+  }
+const [education,seteducation]=useState(false);
+  const myfunction3=()=>{
+    seteducation(false)
+    return
+  }
+  
+  const myfunction2=()=>{
+    setskill(false)
+    return
+  }
+const user=JSON.parse(localStorage.getItem("profile"))?.user
+if(isLoading){
+    return   <ReactLoading color='black' type="spin" height={337} width={115} />
+  }
     let weProps = {
         logo: <FcGoogle />,
         title : "Crisis Intervention Specialist",
@@ -39,8 +62,12 @@ const CdAndCpProfileGrid = (props) => {
             <div className="profile-body-grid">
                 <section className="profile-details">
                     <section className="about-me">
-                        <h3>About {props.profile?.name}</h3>
-                        <p>{props.profile?.summary}</p>
+                        <div>
+
+                        <h3 style={{display:"inline"}}>About {props.profile?.name}</h3>
+                        {user._id===props.profile.userId ?<CiEdit onClick={()=>setsummary(true)} style={{fontSize:"20px",display:"inline",cursor:"pointer"}}/> : <></>}
+                        </div>
+                        <p style={{display:"inline"}}>{props.profile?.summary}</p>
                     </section>
                     { props.profile?.type === 'company' && <section className="company-profile-skills">
                         <h3>Essential Knowledge, Skills, and Experience</h3>
@@ -58,39 +85,53 @@ const CdAndCpProfileGrid = (props) => {
                     </section>}
                     
                     { props.profile?.type === 'candidate' && <section className="professional-skills">
-                        <h3>Professional Skills</h3>
+                        <div>
+
+                        <h3 style={{display:"inline"}}>Professional Skills</h3>
+                            {user._id===props.profile.userId ?<CiEdit onClick={()=>setskill(true)} style={{fontSize:"20px",display:"inline",cursor:"pointer"}}/> : <></>}
+                        </div>
+
                         <section className="candidate-profile-skills">
+                        
+
 {isLoading? 
   <ReactLoading color='black' type="spin" height={337} width={115} />
-    :
+    :(props.profile.skill)?
                   (props.profile?.skill).map((i,j)=>{
                       return  <span key={j}>{i}</span>}
-                ) 
+                ):<></> 
            
         }
                         </section>
                     </section>}
                     { props.profile?.type === 'candidate' && <section className="work-experience">
-                        <h3>Work Experience</h3>
+                        <h3 >Work Experience</h3>
+                        {user._id===props.profile.userId ?<IoMdAddCircleOutline onClick={()=>{
+                            setInputType("experience")
+                            seteducation(true)}} style={{fontSize:"20px",display:"inline",cursor:"pointer"}}/> : <></>}
                         <div className="we-card-container">
-                        {isLoading? 
-  <ReactLoading color='black' type="spin" height={337} width={115} />
-    :                          (props.profile?.experiences).map((i,j)=>{
-                                return <ProfileCard prop={i} key={j}/>    
+                        {  props.profile.experiences?                  
+       (props.profile?.experiences).map((i,j)=>{
+                                return <ProfileCard prop={i} 
+                                userId={props.profile.userId} 
+                                key={j} type="experience"/>    
                             })
-                        }
+                       :<></> }
                         </div>
                     </section>}
                     { props.profile?.type === 'candidate' && <section className="education">
                         <h3>Education</h3>
+                        {user._id===props.profile.userId ?<IoMdAddCircleOutline onClick={()=>{
+                            setInputType("education")
+                            seteducation(true)}} style={{fontSize:"20px",display:"inline",cursor:"pointer"}}/> : <></>}
                         <div className="ed-card-container">
-{isLoading ? 
-  <ReactLoading color='black' type="spin" height={337} width={115} />
-    :
-                            (props.profile?.educations).map((i,j)=>{
-                                return <ProfileCard prop={i} key={j}/>    
-                            })
-                        }
+{  props.profile.educations?
+      (props.profile?.educations).map((i,j)=>{
+                                return <ProfileCard prop={i} userId={props.profile.userId} key={j}
+                                type="education"/
+                                >    
+                           })
+                           :<></>  }
                         </div>
                     </section>}
                 </section>
@@ -112,6 +153,17 @@ const CdAndCpProfileGrid = (props) => {
                     </section>
                 </section>
             </div>
+            {summary &&
+
+<InputSkillAndSummary setFunction={myfunction} type={"summary"} data={props.profile?.summary} />}
+            {skill &&
+
+<InputSkillAndSummary setFunction={myfunction2} type="skill" data={props.profile?.skill} />
+}
+            {education &&
+
+<InputEducationAndExperience setFunction={myfunction3}  action="add"  type={InputType}/>
+}
         </>
     )
 }

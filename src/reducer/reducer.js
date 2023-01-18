@@ -6,7 +6,7 @@ const initialState={
     currentCompany:{},
     currentCandidate:{},
 candidates:[],
-    isLoading:true,
+    isLoading:false,
     userData:null,
 }
 export const centralStore=createSlice({

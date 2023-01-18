@@ -3,10 +3,15 @@ import Axios from "axios"
 import { FiDownload } from 'react-icons/fi'
 import { GoLocation } from 'react-icons/go'
 import { BsTelephone } from 'react-icons/bs'
+import InputPost from './InputPost'
 import { Link,useNavigate} from 'react-router-dom'
 
 const CdAndCpProfileHeader = (props) => {
     const navigate=useNavigate()
+    const [company,setCompany]=useState(false)
+    const myfunction=()=>{
+        setCompany(false)
+    }
     const [fileinfo, setFileinfo] =useState({
         file:[],
         filepreview:null,
@@ -27,7 +32,7 @@ const CdAndCpProfileHeader = (props) => {
 
          if(props.profile.type === 'candidate') {
             if ((props.profile.cv)==="") {
-if(user._id==props.profile.userId){
+if(user?._id==props.profile.userId){
 
    return <div><input type="file" className="form-control" name="upload_file"  onChange={handleInputChange} />
 <button className="download-cv" onClick={()=>{
@@ -45,15 +50,27 @@ if(user._id==props.profile.userId){
         </div>}
             }
             else{    
-return <div><img width="200px"height="200px" src={`http://localhost:5000/${props.profile.cv}`} alt="m" />
-<h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cv</h1></div>
-   }
+return <div>
+<a href={`http://localhost:5000/${props.profile.cv}`} style={{textDecoration:"none",fontSize:"20px" ,border:"2px solid grey" ,backgroundColor:"lightblue",borderRadius:"5px "} }>View Cv</a>
+
+</div>
+  
+}
             
             }  
              else{
-return <button className="contact-us"><BsTelephone className='phone' /> Contact Us</button>} 
-
-
+if(user._id==props.profile?.userId){
+    return <button className="contact-us" onClick={()=>{
+        setCompany(true)
+    }}>
+    {/* <BsTelephone className='phone' />  */}
+    
+    create Post</button>} else{
+        return <button className="contact-us" >
+        <BsTelephone className='phone' /> 
+        contact us</button>
+    }
+}
     }
     return (
         <>
@@ -77,6 +94,10 @@ return <button className="contact-us"><BsTelephone className='phone' /> Contact 
                     
                 </div>
             </div>
+            {
+company &&
+                <InputPost id={props.profile._id} setFunction={myfunction}/>
+            }
         </>
     )
 }
