@@ -41,9 +41,24 @@ const Filter = () => {
                 <section className="filter-allowance">
                     <h3>Allowance</h3>
                     <ul className="filter-list">
-                        <Checkbox industry="Paid" number={35} defaultChecked="true" label="paid"  
-                        />
-                        <Checkbox industry="Unpaid" number={36} label="unpaid" />
+                    <div className="cb-container">
+          <input type="checkbox" id={"paid"} className='cb'  name='paid'
+          value={true}onChange={console.log("a")} />
+          <label htmlFor={"paid"}>
+            paid
+          </label>
+
+        </div>
+        <div className="cb-container">
+          <input type="checkbox" id={"unpaid"} className='cb'  name='paid'
+           value={true}
+          onChange={console.log("a")}
+           />
+          <label htmlFor={"unpaid"}>
+            unpaid
+          </label>
+        </div>
+                       
                     </ul>
                 </section>
                 <hr className='hr' />
