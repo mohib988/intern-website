@@ -2,10 +2,10 @@ import * as api from "../api/index.js"
 import {  Red_EndLoading, Red_FetchBySearch, Red_StartLoading,Red_FetchAllCompanies,Red_FetchCurrentCompany } from "../reducer/reducer.js";
 
 
-export const getAllCompany = (query) => async (dispatch) => {
+export const getAllCompany = (query,type) => async (dispatch) => {
     try {
       dispatch(Red_StartLoading());
-      const {data:{data}}= await api.getAllCompany(query);
+      const {data:{data}}= await api.getAllCompany(query,type);
 dispatch(Red_FetchAllCompanies(data))
  dispatch(Red_EndLoading())
 

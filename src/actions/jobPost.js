@@ -51,10 +51,10 @@ dispatch(Red_EndLoading())
   };
 export const applyForJob= (form) => async (dispatch) => {
     try {
-      dispatch(Red_StartLoading());
+     
       const {data:{data}}= await api.applyForJob(form);
 console.log(data)
-dispatch(Red_EndLoading())
+
 
     } catch (error) {
       console.log(error);

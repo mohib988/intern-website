@@ -23,7 +23,7 @@ window.location.reload(true)
 }
     }
     const onSubmit=()=>{
-        const form={userId:user._id,postId:props.post.id,email:props.post.email,jobTitle:props.post.jobTitle}
+        const form={userId:user._id,postId:props.post._id,email:props.post.email,jobTitle:props.post.jobTitle}
         dispatch(applyForJob(form))
     }
     return (
@@ -67,10 +67,15 @@ window.location.reload(true)
                     <div className="fj-pay">
                         $
                         {props.post.paid?props.post.price:0}<sub>/Hour</sub></div>
-                    <button className="fj-apply" style={{border:"2px solid white"}} 
-                    onClick={onSubmit}
-                    
-                    >Apply Now</button>
+                        {
+                            (props.post.applied).includes(user._id)?
+                            <button className="fj-apply" style={{border:"2px solid white",backgroundColor:"greenyellow"}} 
+                            
+                            >Applied</button>:<button className="fj-apply" style={{border:"2px solid white"}} 
+                            onClick={onSubmit}
+                            
+                            >Apply Now</button>
+                        }
             </section>
         </div>
     )
