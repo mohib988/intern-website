@@ -11,9 +11,6 @@ import ReactLoading from 'react-loading';
 
 const CreateCompanyProfile = () => {
     const {isLoading}=useSelector(state=>state.centralStore)
-    if(isLoading){
-        return   <ReactLoading color='black' type="spin" height={337} width={115} />
-      }
     const dispatch=useDispatch()
     const navigate=useNavigate()
     const user=JSON.parse(localStorage.getItem("profile"))?.user
@@ -24,7 +21,7 @@ const CreateCompanyProfile = () => {
     country:"",
     address:"",
     numberOfEmployee:0,
-    userId:user._id,
+    userId:user?._id,
 image:""}
     const [form, setForm] = useState(initialForm);
     const onHandleChange=(e)=>{
@@ -38,23 +35,26 @@ image:""}
     
     const onSubmit=(e)=>{
         const form1=new FormData()
-              Object.entries(form).map((i)=>{
+        Object.entries(form).map((i)=>{
         form1.append(i[0],i[1])
           
     })
     if( Object.values(form).some(val => val === "" || val === null || val === undefined)  ){
         alert("please fill the form correctly ")
         console.log(form)
-       }else{
-           if(user._id){         
-               dispatch(createCompany(form1))   
-               navigate("/")
-            }
+    }else{
+        if(user?._id){         
+            dispatch(createCompany(form1))   
+            navigate("/")
         }
-
     }
     
-    
+}
+
+
+if(isLoading){
+    return   <ReactLoading color='black' type="spin" height={337} width={115} />
+  }
     return (
         <div className="cr-cd-container">
             <div className="cr-cd-header">
