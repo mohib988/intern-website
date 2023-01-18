@@ -1,11 +1,31 @@
-import React from 'react'
+import React,{useState} from 'react'
 import { GoLocation } from 'react-icons/go'
 import { AiOutlineClockCircle } from 'react-icons/ai'
-import { BsClock } from 'react-icons/bs'
+import { MdOutlineDelete } from 'react-icons/md'
+import { BsClock, BsCursor } from 'react-icons/bs'
+import { useDispatch } from 'react-redux'
+import { deleteJobPost,applyForJob } from '../actions/jobPost'
+
 
 
 
 const FindJobCard = (props) => {
+    const dispatch=useDispatch()
+    const user=JSON.parse(localStorage.getItem("profile"))?.user
+    const[hover,sethover]=useState(false)
+    const deleteFunction=(e)=>{
+    
+const conf=confirm("do you really want to delete it?")
+
+if(conf){
+dispatch(deleteJobPost(props.post._id))
+window.location.reload(true)
+}
+    }
+    const onSubmit=()=>{
+        const form={userId:user._id,postId:props.post._id,email:props.post.email,jobTitle:props.post.jobTitle}
+        dispatch(applyForJob(form))
+    }
     return (
         <div className='find-job-card'>
             {/* <img src="https://xsgames.co/randomusers/avatar.php?g=female" alt="" className="cp-logo" />
@@ -18,12 +38,15 @@ const FindJobCard = (props) => {
             <section className="fj-header">
                 <img src={"http://localhost:5000/"+props.post.companyId.profilePicture} alt="" className="fj-logo" />
                 <div className="fj-name-loc">
-                    <h4 className="fj-name">{props.post.companyId.name}</h4>
-                    <span className="fj-loc"><GoLocation style={{fill: '#abaaad'}} /> {props.post.address}</span>
+                    {user._id==props.post.companyId.userId ? <MdOutlineDelete  
+                    id="MdOutlineDelete"
+                    onClick={deleteFunction}/>:<></>}
+                    <h4 className="fj-name">{props.post.jobTitle}</h4>
+                    <span className="fj-loc"><GoLocation style={{fill: '#abaaad'}} /> {props.post.location}</span>
                 </div>
             </section>
             <section className="fj-body">
-            <h4 className="fj-title">{props.post.Jobtitle}</h4>
+            <h4 className="fj-title">{props.post.jobTitle}</h4>
                 <section className="fj-details">
                     <span className="fj-allowance"><AiOutlineClockCircle style={{fill: '#abaaad'}} />{props.post.paid?"paid":"Unpaid"}</span>
                     <span className="fj-time"><BsClock style={{fill: '#abaaad'}} /> Months</span>
@@ -44,7 +67,15 @@ const FindJobCard = (props) => {
                     <div className="fj-pay">
                         $
                         {props.post.paid?props.post.price:0}<sub>/Hour</sub></div>
-                    <a className="fj-apply">Apply Now</a>
+                        {
+                            (props.post.applied).includes(user._id)?
+                            <button className="fj-apply" style={{border:"2px solid white",backgroundColor:"greenyellow"}} 
+                            
+                            >Applied</button>:<button className="fj-apply" style={{border:"2px solid white"}} 
+                            onClick={onSubmit}
+                            
+                            >Apply Now</button>
+                        }
             </section>
         </div>
     )

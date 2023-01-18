@@ -1,7 +1,48 @@
-import React from 'react'
+import React,{useState} from 'react'
 import { FaUserPlus } from 'react-icons/fa'
+import { BiShow } from 'react-icons/bi'
+import { useDispatch } from 'react-redux'
+import { signup } from '../actions/user'
+import { useNavigate } from 'react-router-dom'
+
 
 const Register = () => {
+    const navigate=useNavigate()
+    const dispatch=useDispatch()
+    const initial={name:"",email:"",password:"",type:""}
+    const [form,setform]=useState(initial)
+    const [candidate,setCandidate]=useState("user")
+    const [wrong,setWrong]=useState(false)
+    
+    const [showPassword, setShowPassword] = useState(false);
+     const handleShowPassword = () => setShowPassword(!showPassword);
+
+    const [confirmPassword,setConfirmPassword]=useState("")
+ const onHandleChange=(e)=>{
+    setform({...form,[e.target.name]:e.target.value})
+ }
+ const onSubmit=()=>{
+    console.log(form)
+   if( Object.values(form).some(val => val === "" || val === null || val === undefined) || confirmPassword=="" ){
+    setWrong(true)
+    console.log(form)
+   }else{
+    const a=dispatch(signup(form))
+if(a){
+
+    if(form.type=="user"){
+        
+        navigate("/createprofile")
+    }
+    else{
+        
+        navigate("/createcompanyprofile")
+    }
+}
+}
+
+ }
+
   return (
     <div className="register-wrapper">
         <div className="register-container">
@@ -27,17 +68,30 @@ const Register = () => {
                 <span className="border">
                     <span className="email-register-header">Or sign up with e-mail</span>
                 </span>
-                <form className="register-form">
-                    <input type="text" className="register-input" placeholder="Username" />
-                    <input type="email" className="register-input" placeholder="Email" />
-                    <input type="password" className="register-input" placeholder="Password" />
-                    <input type="password" className="register-input" placeholder="Confirm Password" />
-                    <select name="register_type" id="register_type">
-                        <option value="candidate">Candidate</option>
-                        <option value="recruiter">Recruiter</option>
+                
+                    <input type="text" className="register-input" placeholder="Username"
+                    name="name"  onChange={onHandleChange}          m/>
+          <input type="email" className="register-input"  name="email" onChange={onHandleChange} placeholder="Email" />
+
+          <div>
+
+                    <input  className="register-input" 
+                    name="password" onChange={onHandleChange}placeholder="Password" 
+                    type={showPassword ? 'text' : 'password'} 
+                    /> 
+                    <BiShow style={{fontSize:"15px",cursor:"pointer"}} onClick ={handleShowPassword}></BiShow>
+                    </div>
+                    <input type="password" className="register-input" placeholder="Confirm Password"  onChange={(e)=>setConfirmPassword(e.target.value)}/>
+                    <select name="type" onChange={onHandleChange} id="register_type" >
+                        <option value="user">Candidate</option>
+                        <option value="company">Recruiter</option>
                     </select>
-                    <button className="register-btn"><FaUserPlus style={{fill: "white"}} className='user-logo' />Sign Up</button>
-                </form>
+                    {
+wrong &&
+                        <h6 style={{color:'red'}}>please fill the form</h6>
+                    }
+                    <button className="register-btn "onClick={onSubmit}><FaUserPlus style={{fill: "white"}} className='user-logo' />Sign Up</button>
+              
                 <span className="register-footer">Already have an account? <a href="/login">Log in</a></span>
             </section>
             <section className="register-illustration">

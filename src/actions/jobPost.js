@@ -27,5 +27,38 @@ dispatch(Red_EndLoading())
       console.log(error);
     }
   };
+export const createJobPost = (form) => async (dispatch) => {
+    try {
+      dispatch(Red_StartLoading());
+      const {data:{data}}= await api.createJobPost(form);
+console.log(data)
+dispatch(Red_EndLoading())
+
+    } catch (error) {
+      console.log(error);
+    }
+  };
+export const deleteJobPost = (id) => async (dispatch) => {
+    try {
+      dispatch(Red_StartLoading());
+      const {data:{data}}= await api.deleteJobPost(id);
+console.log(data)
+dispatch(Red_EndLoading())
+
+    } catch (error) {
+      console.log(error);
+    }
+  };
+export const applyForJob= (form) => async (dispatch) => {
+    try {
+     
+      const {data:{data}}= await api.applyForJob(form);
+console.log(data)
+
+
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
 
