@@ -16,9 +16,15 @@ const navigate=useNavigate()
           <li><Link to="/companies">Recruiters</Link></li>
           <li><Link to="/candidates">Candidates</Link></li>
 <<<<<<< HEAD
+<<<<<<< HEAD
           { user ?
           <li><Link to={`/candidates/${user._id}`}>Profile</Link></li>
         :<div></div>}
+=======
+          { user?.type=="user" ?
+          <li><Link to={`/candidates/${user?._id}`}>your Profile</Link></li>
+        :  <div></div>}
+>>>>>>> a77406839d5c0814ed856d73e1a2a0821999c2e5
 =======
           { user?.type=="user" ?
           <li><Link to={`/candidates/${user?._id}`}>your Profile</Link></li>

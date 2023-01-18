@@ -38,22 +38,12 @@ window.location.reload(true)
             <section className="fj-header">
                 <img src={"http://localhost:5000/"+props.post.companyId.profilePicture} alt="" className="fj-logo" />
                 <div className="fj-name-loc">
-<<<<<<< HEAD
-=======
-                    {user._id==props.post.companyId.userId ? <MdOutlineDelete  
-                    id="MdOutlineDelete"
-                    onClick={deleteFunction}/>:<></>}
->>>>>>> a77406839d5c0814ed856d73e1a2a0821999c2e5
-                    <h4 className="fj-name">{props.post.jobTitle}</h4>
-                    <span className="fj-loc"><GoLocation style={{fill: '#abaaad'}} /> {props.post.location}</span>
+                    <h4 className="fj-name">{props.post.companyId.name}</h4>
+                    <span className="fj-loc"><GoLocation style={{fill: '#abaaad'}} /> {props.post.address}</span>
                 </div>
             </section>
             <section className="fj-body">
-<<<<<<< HEAD
-            <h4 className="fj-title">{props.post.companyId.name}</h4>
-=======
-            <h4 className="fj-title">{props.post.jobTitle}</h4>
->>>>>>> a77406839d5c0814ed856d73e1a2a0821999c2e5
+            <h4 className="fj-title">{props.post.Jobtitle}</h4>
                 <section className="fj-details">
                     <span className="fj-allowance"><AiOutlineClockCircle style={{fill: '#abaaad'}} />{props.post.paid?"paid":"Unpaid"}</span>
                     <span className="fj-time"><BsClock style={{fill: '#abaaad'}} /> Months</span>
