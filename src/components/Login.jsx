@@ -39,10 +39,10 @@ setVisibility("visible")
         <div className="register-container">
             <section className="register-details">
                 <a className="navbar-logo register-logo" href='/'>
-                    C<span className='h'>h</span><span className='underline'>akr</span><span className='i'>i</span>
+                    <span className='h'>C</span><span className='underline'>areer</span><span className='i'>Se</span>
                 </a>
                 <h2 className='register-header'>
-                    Sign in for Chakri
+                    Sign in for CareerSe
                 </h2>
                 <button className="register-google-btn">
                     <div className="google-logo">
@@ -72,7 +72,7 @@ e.preventDefault()
 onsubmit(form)
                     }} className="register-btn"><AiOutlineLogin style={{fill: "white"}} className='user-logo' />Sign In</button>
                 {/* </form> */}
-                <span className="register-footer">Not Registered Yet? <a href="/login">Sign up</a></span>
+                <span className="register-footer">Not Registered Yet? <a href="/register">Sign up</a></span>
             </section>
             <section className="register-illustration">
                 <img src="https://storage.googleapis.com/devitary-image-host.appspot.com/15848031292911696601-undraw_designer_life_w96d.svg" alt="" className="register-illustration-img" />

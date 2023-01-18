@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link,useNavigate } from 'react-router-dom'
+import { GiHamburgerMenu } from 'react-icons/gi'
 
 const Navbar = () => {
 const navigate=useNavigate()
@@ -7,7 +8,7 @@ const navigate=useNavigate()
   return (
     <nav className="navbar-container">
       <Link to="/" className="navbar-logo">
-        C<span className='h'>h</span><span className='underline'>akr</span><span className='i'>i</span>
+        <span className='h'>C</span><span className='underline'>areer</span><span className='i'>Se</span>
       </Link>
       <div className="navbar-links">
         <ul>
@@ -15,7 +16,7 @@ const navigate=useNavigate()
           <li><Link to="/companies">Recruiters</Link></li>
           <li><Link to="/candidates">Candidates</Link></li>
           { user ?
-          <li><Link to={`/candidates/${user._id}`}>your Profile</Link></li>
+          <li><Link to={`/candidates/${user._id}`}>Profile</Link></li>
         :<div></div>}
           </ul>
       </div>
@@ -25,6 +26,7 @@ const navigate=useNavigate()
       localStorage.clear()
       navigate("/login")
     }}>Logout</button>}
+      <div className="hamburger-icon hb-hidden hb-active"><GiHamburgerMenu /></div>
     </nav>
   )
 }
