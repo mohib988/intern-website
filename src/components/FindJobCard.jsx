@@ -3,14 +3,22 @@ import { GoLocation } from 'react-icons/go'
 import { AiOutlineClockCircle } from 'react-icons/ai'
 import { MdOutlineDelete } from 'react-icons/md'
 import { BsClock, BsCursor } from 'react-icons/bs'
-import { useDispatch } from 'react-redux'
+import { useDispatch,useSelector } from 'react-redux'
 import { deleteJobPost,applyForJob } from '../actions/jobPost'
-import { useNavigate } from 'react-router-dom'
-
+import { useNavigate ,useLocation} from 'react-router-dom'
+function useQuery() {
+    return new URLSearchParams(useLocation().search);}
 
 
 
 const FindJobCard = (props) => {
+  const {posts,isLoading}=useSelector(state=>state.centralStore)
+ const query=useQuery()
+ const page=query.get('page')||1
+ const search=query.get('search')
+ 
+
+  
     const navigate=useNavigate()
     const dispatch=useDispatch()
     const user=JSON.parse(localStorage.getItem("profile"))?.user
@@ -21,7 +29,13 @@ const conf=confirm("do you really want to delete it?")
 
 if(conf){
 dispatch(deleteJobPost(props.post._id))
-window.location.reload(true)
+if(search){
+    dispatch(getPostsBySearch(search))
+        }
+        else{
+    
+          dispatch(getAllPost(page))
+        }
 }
 }
 const onSubmit=()=>{
@@ -29,7 +43,12 @@ const onSubmit=()=>{
 
         const form={userId:user?._id,postId:props.post._id,email:props.post.companyId.email,jobTitle:props.post.jobTitle}
         dispatch(applyForJob(form))
-        window.location.reload(true)
+        if(search){
+            dispatch(getPostsBySearch(search))
+                }
+                else{       
+                  dispatch(getAllPost(page))
+                }
     }else{
         navigate("/login")
         alert("login first")
