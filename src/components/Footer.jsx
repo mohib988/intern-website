@@ -5,7 +5,7 @@ const Footer = () => {
     <div className="footer-wrapper">
         <footer className="footer-container">
             <section className="footer-logo">
-                C<span className='h'>h</span><span className='underline'>akr</span><span className='i'>i</span>
+                <span className='h'>C</span><span className='underline'>areer</span><span className='i'>Se</span>
             </section>
             <section className="footer-nav">
                 <ul>

@@ -4,6 +4,7 @@ import { GiOfficeChair, GiReceiveMoney } from 'react-icons/gi'
 import { BsFillPersonFill, BsCode } from 'react-icons/bs'
 import { RiCustomerServiceFill } from 'react-icons/ri'
 import { TbWriting } from 'react-icons/tb'
+import { Link } from 'react-router-dom'
 
 const Categories = () => {
   return (
@@ -24,6 +25,7 @@ const Categories = () => {
                         </span>
                     </div>
                 </div>
+                       {/* <Link style={{textDecoration:"none"}}to="/job"> */}
                 <div className="categories-card">
                     <div className="category-image"><BsFillPersonFill style={{fill: 'lightgreen'}} /></div>
                     <div className="category-details">
@@ -35,6 +37,7 @@ const Categories = () => {
                         </span>
                     </div>
                 </div>
+                       {/* </Link> */}
                 <div className="categories-card">
                     <div className="category-image"><BsCode style={{fill: 'red'}} /></div>
                     <div className="category-details">
