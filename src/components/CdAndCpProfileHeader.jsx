@@ -59,7 +59,7 @@ return <div>
             
             }  
              else{
-if(user._id==props.profile?.userId){
+if(user?._id==props.profile?.userId){
     return <button className="contact-us" onClick={()=>{
         setCompany(true)
     }}>

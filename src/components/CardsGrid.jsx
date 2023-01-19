@@ -19,7 +19,7 @@ function getcomponent(name,tomap){
     
         return(
         tomap.map((i,j)=>{
-            return <Link  to={`${i._id}`}style={{textDecoration: 'none' }}><CompanyCard company={i}key={j}/></Link>
+            return <Link  to={`${i.userId}`}style={{textDecoration: 'none' }}><CompanyCard company={i}key={j}/></Link>
         }))
 
     }

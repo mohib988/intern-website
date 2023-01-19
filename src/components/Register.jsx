@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router-dom'
 const Register = () => {
     const navigate=useNavigate()
     const dispatch=useDispatch()
-    const initial={name:"",email:"",password:"",type:""}
+    const initial={name:"",email:"",password:"",type:"user"}
     const [form,setform]=useState(initial)
     const [candidate,setCandidate]=useState("user")
     const [wrong,setWrong]=useState(false)

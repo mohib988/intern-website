@@ -65,7 +65,7 @@ if(isLoading){
                         <div>
 
                         <h3 style={{display:"inline"}}>About {props.profile?.name}</h3>
-                        {user._id===props.profile.userId ?<CiEdit onClick={()=>setsummary(true)} style={{fontSize:"20px",display:"inline",cursor:"pointer"}}/> : <></>}
+                        {user?._id===props.profile.userId ?<CiEdit onClick={()=>setsummary(true)} style={{fontSize:"20px",display:"inline",cursor:"pointer"}}/> : <></>}
                         </div>
                         <p style={{display:"inline"}}>{props.profile?.summary}</p>
                     </section>
@@ -88,7 +88,7 @@ if(isLoading){
                         <div>
 
                         <h3 style={{display:"inline"}}>Professional Skills</h3>
-                            {user._id===props.profile.userId ?<CiEdit onClick={()=>setskill(true)} style={{fontSize:"20px",display:"inline",cursor:"pointer"}}/> : <></>}
+                            {user?._id===props.profile.userId ?<CiEdit onClick={()=>setskill(true)} style={{fontSize:"20px",display:"inline",cursor:"pointer"}}/> : <></>}
                         </div>
 
                         <section className="candidate-profile-skills">
@@ -106,7 +106,7 @@ if(isLoading){
                     </section>}
                     { props.profile?.type === 'candidate' && <section className="work-experience">
                         <h3 >Work Experience</h3>
-                        {user._id===props.profile.userId ?<IoMdAddCircleOutline onClick={()=>{
+                        {user?._id===props.profile.userId ?<IoMdAddCircleOutline onClick={()=>{
                             setInputType("experience")
                             seteducation(true)}} style={{fontSize:"20px",display:"inline",cursor:"pointer"}}/> : <></>}
                         <div className="we-card-container">
@@ -121,7 +121,7 @@ if(isLoading){
                     </section>}
                     { props.profile?.type === 'candidate' && <section className="education">
                         <h3>Education</h3>
-                        {user._id===props.profile.userId ?<IoMdAddCircleOutline onClick={()=>{
+                        {user?._id===props.profile.userId ?<IoMdAddCircleOutline onClick={()=>{
                             setInputType("education")
                             seteducation(true)}} style={{fontSize:"20px",display:"inline",cursor:"pointer"}}/> : <></>}
                         <div className="ed-card-container">

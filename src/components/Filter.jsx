@@ -1,10 +1,19 @@
 import React from 'react'
 import Checkbox from './Checkbox'
 import { GoLocation } from 'react-icons/go'
+import { useDispatch } from 'react-redux'
+import { getPostByArea } from '../actions/jobPost'
 
 const Filter = () => {
+    const dispatch=useDispatch()
+    const initial={location:"karachi",paid:'true'}
+    const onSubmit=(e)=>{
+        const form={location:e.target.value}
+        dispatch(getPostByArea(form))
+    }
     return (
         <>
+
             <section className="filter">
                 <section className="filter-header">
                     <h3>Advance Filter</h3>
@@ -12,8 +21,7 @@ const Filter = () => {
                 </section>
                 <section className="filter-location">
                     <GoLocation style={{ fill: '#abaaad' }} />
-                    <select name="location" id="" className='location'>
-                        <option value="location">Location</option>
+                    <select name="location" id="" className='location' onClick={onSubmit}>
                         <option value="karachi">Karachi</option>
                         <option value="lahore">Lahore</option>
                     </select>
@@ -33,8 +41,24 @@ const Filter = () => {
                 <section className="filter-allowance">
                     <h3>Allowance</h3>
                     <ul className="filter-list">
-                        <Checkbox industry="Paid" number={35} defaultChecked="true" label="paid" />
-                        <Checkbox industry="Unpaid" number={36} label="unpaid" />
+                    <div className="cb-container">
+          <input type="checkbox" id={"paid"} className='cb'  name='paid'
+          value={true}onChange={console.log("a")} />
+          <label htmlFor={"paid"}>
+            paid
+          </label>
+
+        </div>
+        <div className="cb-container">
+          <input type="checkbox" id={"unpaid"} className='cb'  name='paid'
+           value={true}
+          onChange={console.log("a")}
+           />
+          <label htmlFor={"unpaid"}>
+            unpaid
+          </label>
+        </div>
+                       
                     </ul>
                 </section>
                 <hr className='hr' />
