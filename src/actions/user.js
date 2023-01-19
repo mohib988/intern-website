@@ -40,8 +40,8 @@ export const signup= (form) => async (dispatch) => {
     try {
       dispatch(Red_StartLoading())
       const {data:{data}}= await api.signup(form);
-dispatch(Red_Login(data))
-dispatch(Red_EndLoading())
+      dispatch(Red_Login(data))
+      dispatch(Red_EndLoading())
 return data.user
 } catch (error) {
       console.log(error);
@@ -59,7 +59,9 @@ export const uploadCv = (form) => async (dispatch) => {
   };
 export const createProfile = (form) => async (dispatch) => {
     try {
+      dispatch(Red_StartLoading())
       const {data:{data}}= await api.createProfile(form);
+      dispatch(Red_EndLoading())
     } catch (error) {
       console.log(error);
     }

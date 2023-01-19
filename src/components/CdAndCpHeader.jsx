@@ -1,6 +1,6 @@
 import React from 'react'
 import {Link} from "react-router-dom"
-const CdAndCpHeader = ({type}) => {
+const  CdAndCpHeader = ({type}) => {
   const charArray = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
   return (
     <>

@@ -60,5 +60,18 @@ console.log(data)
       console.log(error);
     }
   };
+export const getPostByArea= (form) => async (dispatch) => {
+    try {
+     
+      const {data:{data}}= await api.getPostByArea(form);
+      dispatch(Red_FetchAllPosts(data))
+
+console.log(data)
+
+
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
 

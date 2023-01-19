@@ -12,25 +12,25 @@ function useQuery() {
   return new URLSearchParams(useLocation().search);}
 
 const FindJob = () => {
+  const dispatch=useDispatch()
+  const {posts,isLoading}=useSelector(state=>state.centralStore)
+ const query=useQuery()
+ const page=query.get('page')||1
+ const search=query.get('search')
+ 
+  useEffect(()=>{
+    if(search){
+dispatch(getPostsBySearch(search))
+    }
+    else{
+
+      dispatch(getAllPost(page))
+    }
+  },[page,search])
   
   const sample={title:"react developer",requirement:"very good boy with the handful of experience in the react and its lib",skill:["programmer","developer","skillful"],companyName:"google",month:2,paid:true,remote:true,address:"karachi,pakistan",price:300}
 
 
-    const dispatch=useDispatch()
-    const {posts,isLoading}=useSelector(state=>state.centralStore)
-   const query=useQuery()
-   const page=query.get('page')||1
-   const search=query.get('search')
-   
-    useEffect(()=>{
-      if(search){
-dispatch(getPostsBySearch(search))
-      }
-      else{
-
-        dispatch(getAllPost(page))
-      }
-    },[page,search])
     if(isLoading){
       return   <ReactLoading color='black' type="spin" height={337} width={115} />
     }

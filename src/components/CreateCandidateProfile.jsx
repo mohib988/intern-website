@@ -2,10 +2,13 @@ import React,{useState} from 'react'
 import { RxMagnifyingGlass } from 'react-icons/rx'
 import { AiOutlineClose, AiOutlineInfoCircle } from 'react-icons/ai'
 import { createProfile } from '../actions/user'
-import { useDispatch } from 'react-redux'
+import { useDispatch,useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
+import ReactLoading from "react-loading"
 
 const CreateCandidateProfile = () => {
+    const {isLoading}=useSelector(state=>state.centralStore)
+    
     const dispatch=useDispatch()
     const user=JSON.parse(localStorage.getItem("profile"))?.user
     const initialForm={name:"",email:"",
@@ -15,21 +18,13 @@ const CreateCandidateProfile = () => {
     country:"",
     address:"",
     skill:"",
-    instituteName:"",
-    description:"",
-    startingDate:"",
-    endingDate:"",
-    instituteNameE:"",
-    descriptionE:"",
-    gender:"",
-    startingDateE:"",
-    endingDateE:"",
-image:"",userId:user._id}
+
+image:"",userId:user?._id}
     const [form, setForm] = useState(initialForm);
     const onHandleChange=(e)=>{
         setForm({ ...form, [e.target.name]: e.target.value })
         console.log(form)
-
+        
     }
     const onHandleChange1=(e)=>{
         setForm({...form,image:e.target.files[0]})
@@ -38,20 +33,23 @@ image:"",userId:user._id}
     
     const onSubmit=(e)=>{
         const form1=new FormData()
-              Object.entries(form).map((i)=>{
-        form1.append(i[0],i[1])
-          
-          })
-// if(user._id){
-//     dispatch(createProfile(form1))   
-
-// }
-    navigate("/")
-    }
-    
-    
-    return (
-        <div className="cr-cd-container">
+        Object.entries(form).map((i)=>{
+            form1.append(i[0],i[1])
+            
+        })
+        if(user._id){
+                dispatch(createProfile(form1))   
+            
+            }
+            navigate("/")
+        }
+        
+        if(isLoading){
+            return   <ReactLoading color='black' type="spin" height={337} width={115} />
+          }
+        
+        return (
+            <div className="cr-cd-container">
             <div className="cr-cd-header">
                 <h2>My Account</h2>
                 <span>Update your profile</span>
@@ -121,40 +119,6 @@ image:"",userId:user._id}
                     <span className="cr-cd-skill-card">NodeJS<AiOutlineClose /></span>
                 </div>
                 <span className="cr-cd-info"><AiOutlineInfoCircle style={{fill: '#abaaad'}} /> You can add upto 15 skills</span>
-            </section>
-            <section className="cr-cd-experience">
-                <h2>Experience</h2>
-                <div className="cr-cd-experience-input-container basic-input-container">
-                    <input type="text" name='instituteName' onChange={onHandleChange} placeholder='Enter Company Name' />
-                    <input type="text" name='description' onChange={onHandleChange} placeholder='Enter Your Position' />
-                    <div className="experience-time-container">
-                        <section className="start-date">
-                            <label htmlFor="start-date">Start Date</label>
-                            <input id='start-date' name="startingDate" onChange={onHandleChange} type="date"/>
-                        </section>
-                        <section className="end-date">
-                            <label htmlFor="end-date">End Date</label>
-                            <input id='end-date' name="endingDate" onChange={onHandleChange} type="date"/>
-                        </section>
-                    </div>
-                </div>
-            </section>
-            <section className="cr-cd-education">
-                <h2>Education</h2>
-                <div className="cr-cd-education-input-container basic-input-container">
-                    <input type="text" name='instituteNameE' onChange={onHandleChange} placeholder='Enter Institution Name' />
-                    <input type="text" name='descriptionE' onChange={onHandleChange} placeholder='Description' />
-                    <div className="education-time-container">
-                        <section className="start-date">
-                            <label htmlFor="start-date">Start Date</label>
-                            <input id='start-date' name="startingDateE" onChange={onHandleChange} type="date"/>
-                        </section>
-                        <section className="end-date">
-                            <label htmlFor="end-date">End Date</label>
-                            <input id='end-date' name="endingDateE" onChange={onHandleChange} type="date"/>
-                        </section>
-                    </div>
-                </div>
             </section>
             <button className="save-profile" onClick={()=>{
                 onSubmit()

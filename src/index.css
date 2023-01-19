@@ -1860,19 +1860,22 @@ background-color: rgb(91, 91, 242);
     right: 0;
     position: fixed;
     font-size: larger;
+    z-index: 100;
     }
      .inputBox{
       background-color:rgba(49,49,49,0.8);
      }
      .inputBox2 h1{
         font-size:xx-large;
+        color: #46484b;
+        padding-left: 5px;
 
      }
      .inputBox2{
         transform: translateY(100px);
     margin: auto;
-    background-color: beige;
-    width: 30vw;
+    background-color: rgb(255, 255, 255);
+    width: 40vw;
     display: flex;
     flex-direction: column;
     border-radius: 5px;
@@ -1884,7 +1887,7 @@ background-color: rgb(91, 91, 242);
       width: 98%;
       height: 7vh;
       margin-bottom: 10px; 
-      border: 2px solid rgba(0, 0, 0, 0.55); 
+      border: 2px solid rgba(0, 0, 0, 0.3); 
       border-radius: 3px;
       font-size: larger;
       
@@ -1898,7 +1901,7 @@ background-color: rgb(91, 91, 242);
     .buttonHolder button{
       /* width: 20%; */
       height: 35px;
-      color: rgba(255, 255, 255, 0.876);
+      color: rgba(255, 251, 251, 0.876);
       font-weight:700;
       background-color: var(--secondary-text-color);
       border-radius: 5px;

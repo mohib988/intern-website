@@ -41,10 +41,10 @@ const ProfileCard = (props) => {
                     </section>
                     <div style={{display:"block",width:"400px" }} className="pf-bottom">{props.prop.description ||"No Data"}</div>
                 </div>
-                  {user._id==props.userId ? 
+                  {user?._id==props.userId ? 
                   <CiEdit onClick={()=>seteducation(true)} style={{fontSize:"60px",display:"inline",cursor:"pointer"}}/>
                     : <></>}
-                      {user._id==props.userId ? 
+                      {user?._id==props.userId ? 
                   <MdOutlineDelete onClick={()=>deleteFunction()} style={{fontSize:"60px",display:"inline",cursor:"pointer"}}/>
                     : <></>}
             </section>

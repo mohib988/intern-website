@@ -2,6 +2,15 @@ import axios from 'axios';
 
 const API = axios.create({ baseURL: 'http://localhost:5000' });
 
+API.interceptors.request.use((req) => {
+    if (localStorage.getItem('profile')) {
+      req.headers.Authorization = `Bearer ${JSON.parse(localStorage.getItem('profile')).token}`;
+    }
+  
+    return req;
+  });
+  
+
 
 export const fetchPostsBySearch = (query) => API.get(`/jobPost/search/query?title=${query}`);
 
@@ -27,3 +36,6 @@ export const deleteJobPost= (id) => API.post(`/jobPost/deleteJobPost/${id}`);
 export const deleteEducationAndExperience= (form,id) => API.post(`/user/deleteeducationAndexperience/${id}`,form);
 export const createCompany= (form) => API.post(`/company/createCompanyProfile`,form);
 export const applyForJob= (form) => API.post(`/jobPost/applyForJob`,form);
+
+
+export const getPostByArea= (form) => API.post(`/jobPost/getPostByArea`,form);
