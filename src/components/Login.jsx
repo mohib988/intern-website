@@ -53,60 +53,61 @@ setVisibility("visible")
 }
 
   return (
-    <div className="register-wrapper">
-        <div className="register-container">
-            <section className="register-details">
-                <a className="navbar-logo register-logo" href='/'>
-                    <span className='h'>C</span><span className='underline'>areer</span><span className='i'>Se</span>
-                </a>
-                <h2 className='register-header'>
-                    Sign in for CareerSe
-                </h2>
+//     <div className="register-wrapper">
+//         <div className="register-container">
+//             <section className="register-details">
+//                 <a className="navbar-logo register-logo" href='/'>
+//                     <span className='h'>C</span><span className='underline'>areer</span><span className='i'>Se</span>
+//                 </a>
+//                 <h2 className='register-header'>
+//                     Sign in for CareerSe
+//                 </h2>
                 
-                <button className="register-facebook-btn">
-                    <div className="facebook-logo">
-                        <img src="https://cdn-icons-png.flaticon.com/512/2504/2504739.png" alt="" className="facebook-logo" />
-                    </div>
-                    Sign in with google
-                </button>
+//                 <button className="register-facebook-btn">
+//                     <div className="facebook-logo">
+//                         <img src="https://cdn-icons-png.flaticon.com/512/2504/2504739.png" alt="" className="facebook-logo" />
+//                     </div>
+//                     Sign in with google
+//                 </button>
                 
                
-                <button className="register-facebook-btn">
-                    <div className="facebook-logo">
-                        <img src="https://img.icons8.com/fluency/48/null/facebook-new.png" alt="" className="facebook-logo" />
-                    </div>
-                    Sign in with Facebook
-                </button>
-                <span className="border">
-                    <span className="email-register-header">Or sign in with e-mail</span>
-                </span>
-                {/* <form className="register-form"> */}
-                    <input type="email" className="register-input"   onChange=
-                    {handleChange}
-                    name="email" placeholder="email" />
-                     <span style={{visibility:visibility2,fontWeight:"bold",color:"blue"}}>please Include @</span>
-                     <div>
+//                 <button className="register-facebook-btn">
+//                     <div className="facebook-logo">
+//                         <img src="https://img.icons8.com/fluency/48/null/facebook-new.png" alt="" className="facebook-logo" />
+//                     </div>
+//                     Sign in with Facebook
+//                 </button>
+//                 <span className="border">
+//                     <span className="email-register-header">Or sign in with e-mail</span>
+//                 </span>
+//                 {/* <form className="register-form"> */}
+//                     <input type="email" className="register-input"   onChange=
+//                     {handleChange}
+//                     name="email" placeholder="email" />
+//                      <span style={{visibility:visibility2,fontWeight:"bold",color:"blue"}}>please Include @</span>
+//                      <div>
 
-                    <input className="register-input"
-                    name='password'  onChange={handleChange}placeholder="password" 
-                    type={showPassword ? 'text' : 'password'} 
-                    /> 
-                    <BiShow style={{fontSize:"15px",cursor:"pointer"}} onClick ={handleShowPassword}></BiShow>
-                    </div>
+//                     <input className="register-input"
+//                     name='password'  onChange={handleChange}placeholder="password" 
+//                     type={showPassword ? 'text' : 'password'} 
+//                     /> 
+//                     <BiShow style={{fontSize:"15px",cursor:"pointer"}} onClick ={handleShowPassword}></BiShow>
+//                     </div>
                     
-                    <span style={{visibility:visibility,fontWeight:"bold",color:"red"}}>wrong credentials</span>
-                    <button  onClick={(e)=>{
-e.preventDefault()
-onsubmit(form)
-                    }} className="register-btn"><AiOutlineLogin style={{fill: "white"}} className='user-logo' />Sign In</button>
-                {/* </form> */}
-                <span className="register-footer">Not Registered Yet? <a href="/register">Sign up</a></span>
-            </section>
-            <section className="register-illustration">
-                <img src="https://storage.googleapis.com/devitary-image-host.appspot.com/15848031292911696601-undraw_designer_life_w96d.svg" alt="" className="register-illustration-img" />
-            </section>
-        </div>
-    </div>
+//                     <span style={{visibility:visibility,fontWeight:"bold",color:"red"}}>wrong credentials</span>
+//                     <button  onClick={(e)=>{
+// e.preventDefault()
+// onsubmit(form)
+//                     }} className="register-btn"><AiOutlineLogin style={{fill: "white"}} className='user-logo' />Sign In</button>
+//                 {/* </form> */}
+//                 <span className="register-footer">Not Registered Yet? <a href="/register">Sign up</a></span>
+//             </section>
+//             <section className="register-illustration">
+//                 <img src="https://storage.googleapis.com/devitary-image-host.appspot.com/15848031292911696601-undraw_designer_life_w96d.svg" alt="" className="register-illustration-img" />
+//             </section>
+//         </div>
+//     </div>
+<h1>there</h1>
   )
 }
 
