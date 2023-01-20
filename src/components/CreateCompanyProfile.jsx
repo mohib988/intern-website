@@ -38,7 +38,7 @@ image:""}
         form1.append(i[0],i[1])
         
     })
-    form1.append("userId",user_id)
+    form1.append("userId",user._id)
     if( Object.values(form).some(val => val === "" || val === null || val === undefined)  ){
         alert("please fill the form correctly ")
         console.log(form)
