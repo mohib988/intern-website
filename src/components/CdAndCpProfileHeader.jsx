@@ -75,7 +75,7 @@ if(user?._id==props.profile?.userId){
     }
     return (
         <>
-            <img src={url+"//"+(props.profile?.profilePicture)} className="cp-cover-img"></img>
+            <img src={url+"/"+(props.profile?.profilePicture)} className="cp-cover-img"></img>
             <div className="profile-header">
                 <div className="profile-header-left">
                     <img src={url+"/"+
