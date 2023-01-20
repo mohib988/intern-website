@@ -5,11 +5,11 @@ import { signin } from '../actions/user';
 import { useNavigate } from 
 'react-router-dom';
 import {BiShow} from "react-icons/bi"
-import LoginButton from './LoginButton';
+// import LoginButton from './LoginButton';
 
-import {gapi} from "gapi-script"
+// import {gapi} from "gapi-script"
 const Login = () => {
-const clientId="323861071961-imh6t53v0kmurp1uv5ush3404fqs3d51.apps.googleusercontent.com"
+// const clientId="323861071961-imh6t53v0kmurp1uv5ush3404fqs3d51.apps.googleusercontent.com"
     // useEffect(()=>{
     //   function start(){
     //     gapi.client.init({
@@ -64,7 +64,8 @@ setVisibility("visible")
                 </h2>
                 
                     <div className="google-logo">
-                        <LoginButton />
+                        {/* <LoginButton /> */}
+                        <button>Google login</button>
                     </div>
                 
                
