@@ -37,11 +37,11 @@ image:"",userId:user?._id}
             form1.append(i[0],i[1])
             
         })
-        if(user._id){
+        if(user?._id){
                 dispatch(createProfile(form1))   
             
+                navigate("/")
             }
-            navigate("/")
         }
         
         if(isLoading){
