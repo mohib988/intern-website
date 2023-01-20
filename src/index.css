@@ -13,7 +13,7 @@ animation: ani infinite 5s ease-in-out;
 background-color: #D1DAEC;
     }
     100%{
-background-color: blue;
+background-color: rgb(91, 91, 242);
     }
 } */
 * {
@@ -277,7 +277,8 @@ background-color: blue;
 }
 
 .featured-jobs-card {
-    min-width: 18rem;
+    /* min-width: 18rem; */
+    margin-bottom: 0.5rem;
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -330,6 +331,7 @@ background-color: blue;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 5rem;
 }
 
 .job-salary {
@@ -614,6 +616,7 @@ background-color: blue;
 .newsletter-text {
     font-size: 2.2rem;
     font-weight: 600;
+    white-space: nowrap;
 }
 
 .newsletter-text span {
@@ -1899,6 +1902,155 @@ background-color: blue;
       /* width: 20%; */
       height: 35px;
       color: rgba(255, 251, 251, 0.876);
+      font-weight:700;
+      background-color: var(--secondary-text-color);
+      border-radius: 5px;
+      border: 3px solid white;
+      margin-bottom: 10px;
+      margin-top: 5px;
+    
+    }
+    
+ #MdOutlineDelete{
+     margin-left:85px;
+     margin-top:-10px ;
+    font-size:18px;
+        border-radius:5px;
+cursor:pointer;
+ }
+     #MdOutlineDelete:hover{
+
+background-color:rgba(0, 0, 0, 0.3)
+
+     }
+
+/* ! Hamburger */
+.hamburger-icon {
+    font-size: 2rem;
+}
+.hb-hidden {
+    display: none;
+}
+
+/* ! Media Queries */
+@media(max-width: 1200px) {
+    .newsletter-text, .newsletter-input {
+        width: 50%;
+    }
+    .newsletter-input input {
+        width: 70%;
+    }
+    .newsletter-input button {
+        width: 30%;
+    }
+}
+
+@media(max-width: 1050px) {
+    .featured-jobs-cards-container, .categories-cards-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .sponsors-logo-container {
+        margin-bottom: 2rem;
+    }
+    .newsletter-container {
+        flex-direction: column;
+        text-align: center;
+        top: -80px;
+    }
+    .newsletter-text {
+        width: 100%;
+    }
+    .newsletter-input {
+        width:80%;
+        margin-bottom: 2rem;
+    }
+    .newsletter-input input {
+        width: 70%;
+    }
+    .newsletter-input button {
+        width: 30%;
+    }
+}
+
+@media(max-width: 992px) {
+    .post-job-container {
+        max-width: 60rem;
+    }
+}
+
+@media(max-width: 768px) {
+    .navbar-links, .navbar-register {
+        display: none;
+    }
+    .hb-active {
+        display: block;
+    }
+    .featured-jobs-cards-container, .categories-cards-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .post-job-container {
+        width: 80%;
+    }
+    .post-job-details {
+        width: 100%;
+        align-items: center;
+        text-align: center;
+        margin: 2rem 0 2rem 0;
+    }
+    .post-job-image {
+        display: none;
+    }
+}
+/* input boxes for skill and summary */
+
+.inputBox {
+    width: 100vw;
+    height: 100vh;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: fixed;
+    font-size: larger;
+    }
+     .inputBox{
+      background-color:rgba(49,49,49,0.8);
+     }
+     .inputBox2 h1{
+        font-size:xx-large;
+
+     }
+     .inputBox2{
+        transform: translateY(100px);
+    margin: auto;
+    background-color: beige;
+    width: 30vw;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    border: 2px solid black;
+    
+    }
+    .inputBox2 .skillandsummaryinput{
+      /* width: fit-content; */
+      width: 98%;
+      height: 7vh;
+      margin-bottom: 10px; 
+      border: 2px solid rgba(0, 0, 0, 0.55); 
+      border-radius: 3px;
+      font-size: larger;
+      
+    }
+    .buttonHolder{
+      display: flex;
+      width: 99%;
+      flex-direction:row-reverse;
+      gap: 5px;
+    }
+    .buttonHolder button{
+      /* width: 20%; */
+      height: 35px;
+      color: rgba(255, 255, 255, 0.876);
       font-weight:700;
       background-color: var(--secondary-text-color);
       border-radius: 5px;

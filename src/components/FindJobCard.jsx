@@ -73,10 +73,12 @@ const onSubmit=()=>{
                     onClick={deleteFunction}/>:<></>:<></>}
                     <h4 className="fj-name">{props.post.jobTitle}</h4>
                     <span className="fj-loc"><GoLocation style={{fill: '#abaaad'}} /> {props.post.location}</span>
+                    <h4 className="fj-name">{props.post.companyId.name}</h4>
+                    <span className="fj-loc"><GoLocation style={{fill: '#abaaad'}} /> {props.post.address}</span>
                 </div>
             </section>
             <section className="fj-body">
-            <h4 className="fj-title">{props.post.jobTitle}</h4>
+            <h4 className="fj-title">{props.post.Jobtitle}</h4>
                 <section className="fj-details">
                     <span className="fj-allowance"><AiOutlineClockCircle style={{fill: '#abaaad'}} />{props.post.paid?"paid":"Unpaid"}</span>
                     <span className="fj-time"><BsClock style={{fill: '#abaaad'}} /> Months</span>

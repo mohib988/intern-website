@@ -48,10 +48,10 @@ if(a){
         <div className="register-container">
             <section className="register-details">
                 <a className="navbar-logo register-logo" href='/'>
-                    C<span className='h'>h</span><span className='underline'>akr</span><span className='i'>i</span>
+                    <span className='h'>C</span><span className='underline'>areer</span><span className='i'>Se</span>
                 </a>
                 <h2 className='register-header'>
-                    Sign up for Chakri
+                    Sign up for CareerSe
                 </h2>
                 <button className="register-google-btn">
                     <div className="google-logo">
