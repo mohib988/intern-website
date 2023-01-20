@@ -2,7 +2,7 @@ import React,{useState,useEffect} from 'react'
 import { AiOutlineLogin } from 'react-icons/ai'
 import { useDispatch } from 'react-redux';
 import { signin } from '../actions/user';
-import { useNavigate } from 
+import { useNavigate,Link } from 
 'react-router-dom';
 import {BiShow} from "react-icons/bi"
 // import LoginButton from './LoginButton';
@@ -100,7 +100,7 @@ e.preventDefault()
 onsubmit(form)
                     }} className="register-btn"><AiOutlineLogin style={{fill: "white"}} className='user-logo' />Sign In</button>
                 {/* </form> */}
-                <span className="register-footer">Not Registered Yet? <a href="/register">Sign up</a></span>
+                <span className="register-footer">Not Registered Yet? <Link to="/login">Sign up</Link></span>
             </section>
             <section className="register-illustration">
                 <img src="https://storage.googleapis.com/devitary-image-host.appspot.com/15848031292911696601-undraw_designer_life_w96d.svg" alt="" className="register-illustration-img" />
