@@ -8,6 +8,7 @@ const user=JSON.parse(localStorage.getItem("profile"))?.user
   const dispatch=useDispatch()
   const [data,setdata]=useState("")
 const onSubmit= (e)=>{
+  props.setFunction
  e.preventDefault()
   const data1={"type":"skill","skill":data,"userId":user._id}
   const data2={"type":"summary","summary":data,"userId":user?._id}
@@ -17,7 +18,6 @@ const onSubmit= (e)=>{
   else{
     dispatch(postSkillOrSummary(data2))
   }
-  props.setFunction
 }
 const onHandleChange=(e)=>{
 setdata(e.target.value)
