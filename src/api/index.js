@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API = axios.create({ baseURL: 'https://elegant-gabardine-dove.cyclic.app' });
+const API = axios.create({ baseURL: 'https://internship-website-backend-a2le2.vercel.app' });
 
 API.interceptors.request.use((req) => {
     if (localStorage.getItem('profile')) {
