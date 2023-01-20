@@ -21,7 +21,6 @@ const CreateCompanyProfile = () => {
     country:"",
     address:"",
     numberOfEmployee:0,
-    userId:userData?.user._id,
 image:""}
     const [form, setForm] = useState(initialForm);
     const onHandleChange=(e)=>{
@@ -37,8 +36,9 @@ image:""}
         const form1=new FormData()
         Object.entries(form).map((i)=>{
         form1.append(i[0],i[1])
-          
+        
     })
+    form1.append("userId",user_id)
     if( Object.values(form).some(val => val === "" || val === null || val === undefined)  ){
         alert("please fill the form correctly ")
         console.log(form)
