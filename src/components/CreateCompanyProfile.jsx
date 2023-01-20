@@ -27,7 +27,6 @@ image:""}
     const onHandleChange=(e)=>{
         setForm({ ...form, [e.target.name]: e.target.value })
         console.log(form)
-
     }
     const onHandleChange1=(e)=>{
         setForm({...form,image:e.target.files[0]})

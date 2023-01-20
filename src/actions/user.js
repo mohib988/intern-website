@@ -42,7 +42,6 @@ export const signup= (form) => async (dispatch) => {
       const {data:{data}}= await api.signup(form);
       dispatch(Red_Login(data))
       dispatch(Red_EndLoading())
-return data.user
 } catch (error) {
       console.log(error);
     }
