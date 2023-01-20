@@ -33,6 +33,7 @@ image:""}
     }
     
     const onSubmit=(e)=>{
+        setForm({...form,userId:user?._id})
         const form1=new FormData()
         Object.entries(form).map((i)=>{
         form1.append(i[0],i[1])
