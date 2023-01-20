@@ -2,8 +2,10 @@ import { formToJSON } from 'axios';
 import React,{useState} from 'react'
 import { useDispatch } from 'react-redux';
 import { createJobPost } from '../actions/jobPost.js';
+import { useNavigate } from 'react-router-dom'
 
 export default function InputPost(props) {
+  const navigate=useNavigate()
     const user=JSON.parse(localStorage.getItem("profile"))?.user
     const dispatch=useDispatch()
     const initialState={
@@ -24,7 +26,7 @@ console.log(form)
 
     const onSubmit=()=>{
     dispatch(createJobPost(form))
-        console.log(form)
+        navigate("/job")
     }
   return (
     <div className='inputBox'>

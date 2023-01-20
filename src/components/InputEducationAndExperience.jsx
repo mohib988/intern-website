@@ -1,8 +1,9 @@
 import React,{useState} from 'react'
 import { useDispatch } from 'react-redux';
 import { addEducationOrExperience, updateEducationOrExperience } from '../actions/user';
-
+import { useNavigate } from 'react-router-dom'
 export default function InputEducationAndExperience(props) {
+    const navigate=useNavigate()
     const user=JSON.parse(localStorage.getItem("profile"))?.user
     const dispatch=useDispatch()
     const initialState={
@@ -27,7 +28,7 @@ setform({...form,[e.target.name]:e.target.value})
         else{
             dispatch(updateEducationOrExperience(form,props.id))
         }
-        props.setFunction
+        navigate("/candidates")
     }
   return (
     <div className='inputBox'>

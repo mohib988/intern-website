@@ -1,14 +1,16 @@
 import React,{useState} from 'react'
 import { useDispatch } from 'react-redux'
 import { postSkillOrSummary } from '../actions/user.js'
+import { useNavigate } from 'react-router-dom'
 
 export default function InputSkillAndSummary
 (props) {
+  const navigate=useNavigate()
 const user=JSON.parse(localStorage.getItem("profile"))?.user
   const dispatch=useDispatch()
   const [data,setdata]=useState("")
 const onSubmit= (e)=>{
-  props.setFunction
+
  e.preventDefault()
   const data1={"type":"skill","skill":data,"userId":user._id}
   const data2={"type":"summary","summary":data,"userId":user?._id}
@@ -18,6 +20,7 @@ const onSubmit= (e)=>{
   else{
     dispatch(postSkillOrSummary(data2))
   }
+navigate("/candidates")
 }
 const onHandleChange=(e)=>{
 setdata(e.target.value)

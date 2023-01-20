@@ -38,6 +38,7 @@ if(search){
           dispatch(getAllPost(page))
         }
 }
+navigate("/")
 }
 const onSubmit=()=>{
     if(user){
@@ -50,6 +51,7 @@ const onSubmit=()=>{
                 else{       
                   dispatch(getAllPost(page))
                 }
+                navigate("/")
     }else{
         navigate("/login")
         alert("login first")
