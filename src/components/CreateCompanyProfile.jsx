@@ -10,7 +10,7 @@ import { BiMessageAltError } from 'react-icons/bi'
 import ReactLoading from 'react-loading';
 
 const CreateCompanyProfile = () => {
-    const {isLoading,userData}=useSelector(state=>state.centralStore)
+    const {isLoading}=useSelector(state=>state.centralStore)
     const dispatch=useDispatch()
     const navigate=useNavigate()
     const user=JSON.parse(localStorage.getItem("profile"))?.user
@@ -21,24 +21,24 @@ const CreateCompanyProfile = () => {
     country:"",
     address:"",
     numberOfEmployee:0,
+    userId:user?._id,
 image:""}
     const [form, setForm] = useState(initialForm);
     const onHandleChange=(e)=>{
         setForm({ ...form, [e.target.name]: e.target.value })
         console.log(form)
+
     }
     const onHandleChange1=(e)=>{
         setForm({...form,image:e.target.files[0]})
     }
     
     const onSubmit=(e)=>{
-
         const form1=new FormData()
         Object.entries(form).map((i)=>{
         form1.append(i[0],i[1])
-        
+          
     })
-    form1.append("userId",user._id)
     if( Object.values(form).some(val => val === "" || val === null || val === undefined)  ){
         alert("please fill the form correctly ")
         console.log(form)

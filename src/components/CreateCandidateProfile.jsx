@@ -19,8 +19,7 @@ const CreateCandidateProfile = () => {
     address:"",
     skill:"",
 
-image:"",
-userId:""}
+image:"",userId:user?._id}
     const [form, setForm] = useState(initialForm);
     const onHandleChange=(e)=>{
         setForm({ ...form, [e.target.name]: e.target.value })
@@ -33,7 +32,7 @@ userId:""}
     const navigate=useNavigate()
     
     const onSubmit=(e)=>{
-        setForm({...form,userId:user._id})
+        setForm({...form,userId:use})
         const form1=new FormData()
         Object.entries(form).map((i)=>{
             form1.append(i[0],i[1])
@@ -43,9 +42,6 @@ userId:""}
                 dispatch(createProfile(form1))   
             
                 navigate("/")
-            }
-            else{
-                alert("ERROR")
             }
         }
         
