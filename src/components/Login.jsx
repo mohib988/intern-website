@@ -100,7 +100,7 @@ e.preventDefault()
 onsubmit(form)
                     }} className="register-btn"><AiOutlineLogin style={{fill: "white"}} className='user-logo' />Sign In</button>
                 {/* </form> */}
-                <span className="register-footer">Not Registered Yet? <Link to="/login">Sign up</Link></span>
+                <span className="register-footer">Not Registered Yet? <Link to="/register">Sign up</Link></span>
             </section>
             <section className="register-illustration">
                 <img src="https://storage.googleapis.com/devitary-image-host.appspot.com/15848031292911696601-undraw_designer_life_w96d.svg" alt="" className="register-illustration-img" />
