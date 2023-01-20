@@ -1,5 +1,6 @@
 
 //need to make jobs open
+import { url } from '../assets/url'
 import React from 'react'
 import { GoLocation } from 'react-icons/go'
 
@@ -7,7 +8,7 @@ const CompanyCard = (props) => {
   return (
     <>
         <div className="cp-card">
-            <img src={"http://localhost:5000/"+props.company.profilePicture} alt="" className="cp-logo" />
+            <img src={url+"/"+props.company.profilePicture} alt="" className="cp-logo" />
             <h3 className="cp-name">{props.company.name}</h3>
             <span className="cp-location">
                 <GoLocation style={{fill: '#abaaad'}} />
