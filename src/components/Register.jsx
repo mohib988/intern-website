@@ -27,9 +27,8 @@ const Register = () => {
     setWrong(true)
     console.log(form)
    }else{
-    const a=dispatch(signup(form))
-if(a){
-
+       const a=dispatch(signup(form))
+  
     if(form.type=="user"){
         
         navigate("/createprofile")
@@ -38,7 +37,7 @@ if(a){
         
         navigate("/createcompanyprofile")
     }
-}
+
 }
 
  }
