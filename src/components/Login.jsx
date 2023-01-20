@@ -63,10 +63,12 @@ setVisibility("visible")
                     Sign in for CareerSe
                 </h2>
                 
-                    <div className="google-logo">
-                        {/* <LoginButton /> */}
-                        <button>Google login</button>
+                <button className="register-facebook-btn">
+                    <div className="facebook-logo">
+                        <img src="https://cdn-icons-png.flaticon.com/512/2504/2504739.png" alt="" className="facebook-logo" />
                     </div>
+                    Sign in with google
+                </button>
                 
                
                 <button className="register-facebook-btn">
