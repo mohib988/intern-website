@@ -18,16 +18,8 @@ const navigate=useNavigate()
           { 
           user?
           user?.type=="user" ?
-          <li><Link to={`/candidates/${user?._id}`}>your Profile</Link></li> : <li><Link to={`/companies/${user?._id}`}>your Profile</Link></li>
-          { user ?
-          <li><Link to={`/candidates/${user._id}`}>Profile</Link></li>
-        :<div></div>}
-          { user?.type=="user" ?
-          <li><Link to={`/candidates/${user?._id}`}>your Profile</Link></li>
-        :  <div></div>}
-          { user?.type=="user" ?
-          <li><Link to={`/candidates/${user?._id}`}>your Profile</Link></li>
-        :  <div></div>}
+          <li><Link to={`/candidates/${user?._id}`}>your Profile</Link></li> : <li><Link to={`/companies/${user?._id}`}>your Profile</Link></li>:<></>}
+    
           </ul>
       </div>
       {!user?
