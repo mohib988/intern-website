@@ -21,7 +21,7 @@ const CreateCompanyProfile = () => {
     country:"",
     address:"",
     numberOfEmployee:0,
-    userId:userData.user._id,
+    userId:userData?.user._id,
 image:""}
     const [form, setForm] = useState(initialForm);
     const onHandleChange=(e)=>{
