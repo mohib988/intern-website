@@ -43,7 +43,7 @@ const Login = () => {
 
 const onsubmit=async (form)=>{
 
-const user= await dispatch(signin(form))
+const user=  dispatch(signin(form))
 if(user){
 navigate("/")
 }else{

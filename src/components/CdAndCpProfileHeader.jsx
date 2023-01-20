@@ -6,6 +6,7 @@ import { BsTelephone } from 'react-icons/bs'
 import InputPost from './InputPost'
 import { Link,useNavigate} from 'react-router-dom'
 
+import { url } from '../assets/url'
 const CdAndCpProfileHeader = (props) => {
     const navigate=useNavigate()
     const [company,setCompany]=useState(false)
@@ -40,7 +41,7 @@ if(user?._id==props.profile.userId){
     formdata.append('image', fileinfo.file);
     formdata.append('id',props.profile.userId);
 
-    Axios.post("http://localhost:5000/user/uploadCv", formdata,{   
+    Axios.post(`${url}+/user/uploadCv`, formdata,{   
         headers: { "Content-Type": "multipart/form-data" } 
 })
 .then(res => { 
@@ -51,7 +52,7 @@ if(user?._id==props.profile.userId){
             }
             else{    
 return <div>
-<a href={`http://localhost:5000/${props.profile.cv}`} style={{textDecoration:"none",fontSize:"20px" ,border:"2px solid grey" ,backgroundColor:"lightblue",borderRadius:"5px "} }>View Cv</a>
+<a href={`${url}+/${props.profile.cv}`} style={{textDecoration:"none",fontSize:"20px" ,border:"2px solid grey" ,backgroundColor:"lightblue",borderRadius:"5px "} }>View Cv</a>
 
 </div>
   
@@ -74,10 +75,10 @@ if(user?._id==props.profile?.userId){
     }
     return (
         <>
-            <img src={"http://localhost:5000/"+(props.profile?.profilePicture)} className="cp-cover-img"></img>
+            <img src={url+"/"+(props.profile?.profilePicture)} className="cp-cover-img"></img>
             <div className="profile-header">
                 <div className="profile-header-left">
-                    <img src={"http://localhost:5000/"+
+                    <img src={url+"/"+
                     props.profile?.profilePicture} alt="" className="profile-pic" />
                     <div className="profile-name-pos">
                         <h3 className="profile-name">{props.profile?.name}</h3>

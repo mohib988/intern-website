@@ -1,13 +1,14 @@
 import React from 'react'
 import { AiOutlineClockCircle } from 'react-icons/ai'
 import { GoLocation } from 'react-icons/go'
+import { url } from '../assets/url'
 
 const CandidateCard = (props) => {
   return (
     <>
         <div className="candidate-card">
             <section className="candidate-card-header">
-                <img src={"http://localhost:5000/"+props.profile.profilePicture} alt="" className="candidate-card-img" />
+                <img src={url+"/"+props.profile.profilePicture} alt="" className="candidate-card-img" />
                 <div className="candidate-card-details">
                     <h2 className="candidate-card-name">{props.profile.name}</h2>
                     <span className='candidate-card-position'>{props.profile.field}</span>

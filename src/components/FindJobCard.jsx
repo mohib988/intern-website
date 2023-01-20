@@ -6,6 +6,7 @@ import { BsClock, BsCursor } from 'react-icons/bs'
 import { useDispatch,useSelector } from 'react-redux'
 import { deleteJobPost,applyForJob } from '../actions/jobPost'
 import { useNavigate ,useLocation} from 'react-router-dom'
+import { url } from '../assets/url'
 function useQuery() {
     return new URLSearchParams(useLocation().search);}
 
@@ -65,7 +66,7 @@ const onSubmit=()=>{
             </span>
             <a className="cp-jobs">12 Jobs Open</a> */}
             <section className="fj-header">
-                <img src={"http://localhost:5000/"+props.post.companyId.profilePicture} alt="" className="fj-logo" />
+                <img src={url+"/"+props.post.companyId.profilePicture} alt="" className="fj-logo" />
                 <div className="fj-name-loc">
                     {user?
                     user?._id===props.post.companyId.userId ? <MdOutlineDelete  
