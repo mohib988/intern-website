@@ -92,7 +92,7 @@ wrong &&
                     }
                     <button className="register-btn "onClick={onSubmit}><FaUserPlus style={{fill: "white"}} className='user-logo' />Sign Up</button>
               
-                <span className="register-footer">Already have an account? <a href="/login">Log in</a></span>
+                <span className="register-footer">Already have an account? <Link to="/login">Log in</Link></span>
             </section>
             <section className="register-illustration">
                 <img src="https://storage.googleapis.com/devitary-image-host.appspot.com/15848031292911696601-undraw_designer_life_w96d.svg" alt="" className="register-illustration-img" />
