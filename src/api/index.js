@@ -1,6 +1,6 @@
 import axios from 'axios';
-
-const API = axios.create({ baseURL: 'https://internship-website-backend-a2le2.vercel.app' });
+import {url} from "../assets/url.js"
+const API = axios.create({ baseURL: url });
 
 API.interceptors.request.use((req) => {
     if (localStorage.getItem('profile')) {
