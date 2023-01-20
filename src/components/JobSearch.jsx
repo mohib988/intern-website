@@ -5,7 +5,7 @@ import { BsHandbag, BsGrid3X3Gap } from 'react-icons/bs';
 import { ReactSearchAutocomplete } from 'react-search-autocomplete'
 import {items} from "../assets/data/items.js"
 import { useDispatch,useSelector } from 'react-redux';
-import { Navigate, useNavigate } from 'react-router-dom';
+import {  useNavigate } from 'react-router-dom';
 import {getPostsBySearch} from "../actions/jobPost.js"
 
 const JobSearch = () => {
