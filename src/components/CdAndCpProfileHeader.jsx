@@ -41,7 +41,7 @@ if(user?._id==props.profile.userId){
     formdata.append('image', fileinfo.file);
     formdata.append('id',props.profile.userId);
 
-    Axios.post(`${url}+/user/uploadCv`, formdata,{   
+    Axios.post(`${url}/user/uploadCv`, formdata,{   
         headers: { "Content-Type": "multipart/form-data" } 
 })
 .then(res => { 
