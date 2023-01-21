@@ -52,7 +52,7 @@ if(user?._id==props.profile.userId){
             }
             else{    
 return <div>
-<a href={`${url}+/${props.profile.cv}`} style={{textDecoration:"none",fontSize:"20px" ,border:"2px solid grey" ,backgroundColor:"lightblue",borderRadius:"5px "} }>View Cv</a>
+<a href={`${url}/${props.profile.cv}`} style={{textDecoration:"none",fontSize:"20px" ,border:"2px solid grey" ,backgroundColor:"lightblue",borderRadius:"5px "} }>View Cv</a>
 
 </div>
   
