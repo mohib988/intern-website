@@ -51,7 +51,7 @@ const onSubmit=()=>{
                 else{       
                   dispatch(getAllPost(page))
                 }
-                navigate("/")
+                navigate("/done")
     }else{
         navigate("/login")
         alert("login first")

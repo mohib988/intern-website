@@ -10,7 +10,6 @@ const CreateCandidateProfile = () => {
     const {isLoading}=useSelector(state=>state.centralStore)
     
     const dispatch=useDispatch()
-    const user=JSON.parse(localStorage.getItem("profile"))?.user
     const initialForm={name:"",email:"",
     phoneNo:"",
     field:"",
@@ -19,8 +18,8 @@ const CreateCandidateProfile = () => {
     address:"",
     skill:"",
 
-image:"",userId:user?._id}
-    const [form, setForm] = useState(initialForm);
+image:""}
+const [form, setForm] = useState(initialForm);
     const onHandleChange=(e)=>{
         setForm({ ...form, [e.target.name]: e.target.value })
         console.log(form)
@@ -32,15 +31,17 @@ image:"",userId:user?._id}
     const navigate=useNavigate()
     
     const onSubmit=(e)=>{
-        setForm({...form,userId:use})
+        const user1=JSON.parse(localStorage.getItem("profile"))
+   
         const form1=new FormData()
         Object.entries(form).map((i)=>{
             form1.append(i[0],i[1])
             
         })
-        if(user?._id){
+        form1.append("userId",user1.user._id)
+        if(user1){
                 dispatch(createProfile(form1))   
-            
+            console.log(form1)
                 navigate("/")
             }
         }

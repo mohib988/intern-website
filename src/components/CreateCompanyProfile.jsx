@@ -13,7 +13,6 @@ const CreateCompanyProfile = () => {
     const {isLoading}=useSelector(state=>state.centralStore)
     const dispatch=useDispatch()
     const navigate=useNavigate()
-    const user=JSON.parse(localStorage.getItem("profile"))?.user
     const initialForm={name:"",email:"",
     phoneNo:"",
     field:"",
@@ -21,29 +20,32 @@ const CreateCompanyProfile = () => {
     country:"",
     address:"",
     numberOfEmployee:0,
-    userId:user?._id,
-image:""}
+    image:""}
     const [form, setForm] = useState(initialForm);
     const onHandleChange=(e)=>{
         setForm({ ...form, [e.target.name]: e.target.value })
         console.log(form)
-
+        
     }
     const onHandleChange1=(e)=>{
         setForm({...form,image:e.target.files[0]})
     }
     
     const onSubmit=(e)=>{
+        const user1=JSON.parse(localStorage.getItem("profile"))
         const form1=new FormData()
         Object.entries(form).map((i)=>{
         form1.append(i[0],i[1])
-          
+        
     })
+    form1.append("userId",user1.user?._id)
+    console.log(user1.user?._id)
+
     if( Object.values(form).some(val => val === "" || val === null || val === undefined)  ){
         alert("please fill the form correctly ")
         console.log(form)
     }else{
-        if(user?._id){         
+        if(user1){         
             dispatch(createCompany(form1))   
             navigate("/")
         }

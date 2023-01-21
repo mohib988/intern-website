@@ -7,6 +7,7 @@ import CreateCandidateProfile from "./components/CreateCandidateProfile"
 import CreateCompanyProfile from "./components/CreateCompanyProfile"
 import FindJob from "./components/FindJob"
 import HomePageComponents from "./components/HomePageComponents"
+import Done from "./components/done.jsx"
 import Login from "./components/Login"
 import Register from "./components/Register"
 import WithNavAndFooter from "./components/WithNavAndFooter"
@@ -27,6 +28,7 @@ function App() {
           <Route path="/companies/:id" element={<CompanyProfile />} />
           <Route path="/job" element={<FindJob />} />
         </Route>
+          <Route path="/done" element={<Done/>} />
       </Routes>
     </div>
   )
