@@ -2,8 +2,14 @@ import React from 'react'
 import { AiOutlineClockCircle } from 'react-icons/ai'
 import { GoLocation } from 'react-icons/go'
 import { url } from '../assets/url'
-
+import ReactLoading from "react-loading"
+import { useSelector } from 'react-redux'
 const CandidateCard = (props) => {
+    const {  isLoading } = useSelector(state => state.centralStore)
+    if (isLoading) {
+        return <ReactLoading color='black' type="spin" height={337} width={115} />
+      }
+    
   return (
     <>
         <div className="candidate-card">
@@ -15,14 +21,17 @@ const CandidateCard = (props) => {
                 </div>
             </section>
             <p className="candidate-card-summary">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aut culpa eaque blanditiis voluptatem? Enim, veniam!
+               {props.profile.skillAndSummary[0]?.summary}
             </p>
             <section className="candidate-card-skills">
-                <span className='skill-tag'>Figma</span>
-                <span className='skill-tag'>Adobe XD</span>
-                <span className='skill-tag'>PSD</span>
-                <span className='skill-tag'>App</span>
-                <span className='skill-tag'>Digital</span>
+                {
+                    props.profile.skillAndSummary[0]?.skill ?
+                    (props.profile.skillAndSummary[0]?.skill).map((i,j)=>{
+                       return <span className='skill-tag' key={j}>{i}</span>
+                    })
+:<></>
+                }
+              
             </section>
             <section className="candidate-card-footer">
                 <div className="candidate-location"><GoLocation style={{fill: '#abaaad'}} />{props.profile.name}</div>

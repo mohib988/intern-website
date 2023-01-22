@@ -11,31 +11,44 @@ import { FiMail } from 'react-icons/fi'
 import {CiEdit} from "react-icons/ci"
 import {IoMdAddCircleOutline} from "react-icons/io"
 import ReactLoading from 'react-loading';
-import { useSelector } from 'react-redux'
+import { useSelector,useDispatch } from 'react-redux'
 import InputSkillAndSummary from './InputSkillAndSummary'
 import InputEducationAndExperience from './InputEducationAndExperience'
+import {updateEmail} from "../actions/company.js"
+import {useNavigate} from "react-router-dom"
 
 const CdAndCpProfileGrid = (props) => {
+
+    const navigate=useNavigate()
     const {isLoading}=useSelector
-(state=>state.centralStore)
-const [summary,setsummary]=useState(false);
-const [skill,setskill]=useState(false);
-const [InputType,setInputType]=useState("");
-  const myfunction=()=>{
-    setsummary(false)
-    return
+    (state=>state.centralStore)
+    const [summary,setsummary]=useState(false);
+    const [skill,setskill]=useState(false);
+    const [InputType,setInputType]=useState("");
+    const myfunction=()=>{
+        setsummary(false)
+        return
+    }
+    const [education,seteducation]=useState(false);
+    const myfunction3=()=>{
+        seteducation(false)
+        return
+    }
+    
+    const myfunction2=()=>{
+        setskill(false)
+        return
+    }
+    const dispatch=useDispatch()
+    const user=JSON.parse(localStorage.getItem("profile"))?.user
+    
+    const InputEmail=()=>{
+        const a=prompt("enter you email")
+        if(props.profile.type==="company"){
+        dispatch(updateEmail({email:a,userId:user?._id}))
+        navigate("/companies")
+}
   }
-const [education,seteducation]=useState(false);
-  const myfunction3=()=>{
-    seteducation(false)
-    return
-  }
-  
-  const myfunction2=()=>{
-    setskill(false)
-    return
-  }
-const user=JSON.parse(localStorage.getItem("profile"))?.user
 if(isLoading){
     return   <ReactLoading color='black' type="spin" height={337} width={115} />
   }
@@ -147,7 +160,10 @@ if(isLoading){
                         <ul>
                             <li><span>Location:</span> {props.profile.address}</li>
                             <li><span>Phone:</span>{ props.profile?.phoneNo}</li>
-                            <li><span>Email:</span> {props.profile?.email}</li>
+                            <span>{props.profile?.type==="company" ? 
+                             <CiEdit onClick={InputEmail} style={{fontSize:"15px",display:"inline",cursor:"pointer"}}/>: <></>}</span>
+                            <li><span>Email:</span>
+                             {props.profile?.email}</li>
                         </ul>
                         <a className="send-message"><FiMail />Send Message</a>
                     </section>

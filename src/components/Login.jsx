@@ -43,8 +43,8 @@ const Login = () => {
 
 const onsubmit=async (form)=>{
 
-const user=  dispatch(signin(form))
-if(user){
+const user=  await dispatch(signin(form))
+if(user._id){
 navigate("/")
 }else{
 setVisibility("visible")

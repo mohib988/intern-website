@@ -46,5 +46,19 @@ export const createCompany = (form) => async (dispatch) => {
       console.log(error);
     }
   };
+export const updateEmail = (form) => async (dispatch) => {
+    try {
+      dispatch(Red_StartLoading());
+      const {data:{data}}= await api.updateEmail(form);
+
+ dispatch(Red_EndLoading())
+
+      console.log("company")
+      
+
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
 

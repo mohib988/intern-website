@@ -45,13 +45,13 @@ const onSubmit=()=>{
 
         const form={userId:user?._id,postId:props.post._id,email:props.post.companyId.email,jobTitle:props.post.jobTitle}
         dispatch(applyForJob(form))
+        navigate("/done")
         if(search){
             dispatch(getPostsBySearch(search))
                 }
                 else{       
                   dispatch(getAllPost(page))
                 }
-                navigate("/done")
     }else{
         navigate("/login")
         alert("login first")

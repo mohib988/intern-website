@@ -39,3 +39,4 @@ export const applyForJob= (form) => API.post(`/jobPost/applyForJob`,form);
 
 
 export const getPostByArea= (form) => API.post(`/jobPost/getPostByArea`,form);
+export const updateEmail= (form) => API.post(`/company/updateEmail`,form);

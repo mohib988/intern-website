@@ -45,7 +45,7 @@ if(user?._id==props.profile.userId){
         headers: { "Content-Type": "multipart/form-data" } 
 })
 .then(res => { 
-  console.warn(res);
+  navigate("/candidates")
 })
 }} > submit it  </button>
         </div>}
