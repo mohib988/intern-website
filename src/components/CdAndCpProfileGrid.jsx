@@ -160,8 +160,9 @@ if(isLoading){
                         <ul>
                             <li><span>Location:</span> {props.profile.address}</li>
                             <li><span>Phone:</span>{ props.profile?.phoneNo}</li>
-                            <span>{props.profile?.type==="company" ? 
-                             <CiEdit onClick={InputEmail} style={{fontSize:"15px",display:"inline",cursor:"pointer"}}/>: <></>}</span>
+                            <span>{props.profile?.type==="company"?
+                            props.profile?.userId===user?._id ? 
+                             <CiEdit onClick={InputEmail} style={{fontSize:"15px",display:"inline",cursor:"pointer"}}/>: <></>:<></>}</span>
                             <li><span>Email:</span>
                              {props.profile?.email}</li>
                         </ul>
