@@ -1961,11 +1961,13 @@ background-color: rgb(91, 91, 242);
      margin-top:-10px ;
     font-size:18px;
         border-radius:5px;
-cursor:pointer;
- }
-     #MdOutlineDelete:hover{
-
-}
+        cursor:pointer;
+    }
+    
+    #MdOutlineDelete:hover{
+        background-color:rgba(255, 0, 0, 0.5);
+        transition:0.2s;
+    }
 
 .inputBox2 .skillandsummaryinput {
     /* width: fit-content; */
