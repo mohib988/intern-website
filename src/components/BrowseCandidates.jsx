@@ -23,7 +23,7 @@ const BrowseCandidates = () => {
   }, [page])
 
   if (isLoading) {
-    return <ReactLoading color='black' type="spin" height={337} width={115} />
+    return <div style={{width:"115px",margin:"auto"}}><ReactLoading color='black' type="spin" height={337} width={115} /></div>
   }
 
   return (
