@@ -2188,3 +2188,56 @@ background-color: rgb(91, 91, 242);
 #MdOutlineDelete:hover {
     background-color: rgba(0, 0, 0, 0.3)
 }
+
+
+
+/* Your existing CSS code */
+
+/* Media query for screens up to 768px */
+@media (max-width: 768px) {
+    /* Adjust styles for small screens */
+    .navbar-links ul {
+        width: auto;
+    }
+    
+    .categories-cards-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .featured-jobs-cards-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .testimonial-card {
+        padding: 1.5rem;
+    }
+    
+    .sponsors-logo-container {
+        font-size: 5rem;
+    }
+    
+    .footer-container {
+        grid-template-columns: repeat(2, auto);
+    }
+    
+    .newsletter-container {
+        top: -20px;
+    }
+    
+    .pagination {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+    
+    .pagination-list {
+        font-size: 1.2rem;
+    }
+    
+    .find-job-grid,
+    .filter-cards-grid {
+        display: block;
+    }
+    
+    /* Adjust other styles as needed */
+}
