@@ -17,9 +17,13 @@ const Navbar = () => {
           <li><Link to="/companies">Recruiters</Link></li>
           <li><Link to="/candidates">Candidates</Link></li>
           {user && (
-            <li>
-              <Link to={`/candidates/${user._id}`}>Your Profile</Link>
-            </li>
+            <li><Link to={`/candidates/${user._id}`}>Profile</Link></li>
+          )}
+          {user && user.type === "user" && (
+            <li><Link to={`/candidates/${user._id}`}>Your Profile</Link></li>
+          )}
+          {user && user.type !== "user" && (
+            <li><Link to={`/companies/${user._id}`}>Your Profile</Link></li>
           )}
         </ul>
       </div>
@@ -34,6 +38,6 @@ const Navbar = () => {
       <div className="hamburger-icon hb-hidden hb-active"><GiHamburgerMenu /></div>
     </nav>
   );
-};
+}
 
 export default Navbar;
