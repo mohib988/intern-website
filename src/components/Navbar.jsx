@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { GiHamburgerMenu } from 'react-icons/gi';
 
 const Navbar = () => {
-  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [isDrawerOpen, setIsDrawerOpen] = useState(true);
   const toggleDrawer = () => {
     setIsDrawerOpen(!isDrawerOpen);
   };
