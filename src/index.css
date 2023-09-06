@@ -1152,9 +1152,13 @@ background-color: rgb(91, 91, 242);
 
 .re-cards {
     display: flex;
+
     flex-direction: column;
-    width: 93vw;
-    margin: auto;
+    width: 95vw;
+    /* margin-right: 0%; */
+    /* margin: auto; */
+    justify-content: center;
+    align-items: center;
 }
 
 .re-header {
@@ -1185,8 +1189,16 @@ background-color: rgb(91, 91, 242);
 
 }
 .profile-footer ul li{
-    width: 30%;
+    width: 14% !important;
     margin-left: -30px !important;
+    
+}
+.profile-footer ul li:last-child{
+    /* width: 14% !important; */
+    font-size: 10px;
+    width: 10px;
+    margin-left: -32px !important;
+
 }
 
 .browse-candidates-grid a{
@@ -2178,6 +2190,7 @@ background-color: rgb(91, 91, 242);
     
     .navbar-links ul li{
         list-style: circle;
+        font-size: large;
         border-top:2px solid black ;
         border-bottom:2px solid black ;
     }

@@ -101,7 +101,7 @@ if(isLoading){
                         <div>
 
                         <h3 style={{display:"inline"}}>Professional Skills</h3>
-                            {user?._id===props.profile.userId ?<CiEdit onClick={()=>setskill(true)} style={{fontSize:"20px",display:"inline",cursor:"pointer"}}/> : <></>}
+                            {user?._id===props.profile.userId ?<CiEdit onClick={()=>setskill(true)} style={{fontSize:"10px",display:"inline",cursor:"pointer"}}/> : <></>}
                         </div>
 
                         <section className="candidate-profile-skills">
@@ -163,7 +163,7 @@ if(isLoading){
                             <span>{props.profile?.type==="company"?
                             props.profile?.userId===user?._id ? 
                              <CiEdit onClick={InputEmail} style={{fontSize:"15px",display:"inline",cursor:"pointer"}}/>: <></>:<></>}</span>
-                            <li><span>Email:</span>
+                            <li   ><span>Email:</span>
                              {props.profile?.email}</li>
                         </ul>
                         <a className="send-message"><FiMail />Send Message</a>
