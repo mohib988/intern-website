@@ -10,12 +10,11 @@ import Sponsors from './Sponsors'
 const HomePageComponents = () => {
  
   return (
-    <div>
+    <div style={{width:"93vw","margin":"auto"}} >
      
         <JobSearch />
         <Categories />
         <FeaturedJobs />
-        <Testimonials />
         <PostJob />
         <Sponsors />
 

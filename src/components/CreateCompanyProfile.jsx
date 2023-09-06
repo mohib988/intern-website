@@ -55,7 +55,7 @@ const CreateCompanyProfile = () => {
 
 
 if(isLoading){
-    return   <div style={{width:"115px",margin:"auto"}}><ReactLoading color='black' type="spin" height={337} width={115} /></div>
+    return   <div style={{width:"115px",margin:"auto"}}><ReactLoading color='orange' type="spin" height={337} width={115} /></div>
   }
     return (
         <div className="cr-cd-container">

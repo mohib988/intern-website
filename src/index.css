@@ -23,15 +23,16 @@ background-color: rgb(91, 91, 242);
     padding: 0;
     font-family: 'Poppins', sans-serif;
     --primary-text-color: #292635;
-    --secondary-text-color: #4540CF;
-    --ternary-text-color: #abaaad;
+    --secondary-text-color: #cf9140;
+    --ternary-text-color: #adacaa;
+    --bs-link-color: #0a022d;
     --button-background-color: #05264E;
     --primary-background-color: #FFFFFF;
     --secondary-background-color: #F5F7FB;
     --primary-background-color: #FFFFFF;
     --input-background-color: #F7FAFC;
-    --input-text-color: #8c939a;
-    --register-color: #667EEA;
+    --input-text-color: #9a978c;
+    --register-color: #eab166;
 }
 
 /* ! Navbar */
@@ -82,9 +83,9 @@ background-color: rgb(91, 91, 242);
 }
 
 .navbar-register {
-    color: white;
+    color: var(--register-color);
     font-size: 1.2rem;
-    background-color: var(--secondary-text-color);
+    background-color: var(--bs-link-color);
     border: 1.5px solid var(--secondary-text-color);
     border-radius: 2rem;
     padding: 0.8rem;
@@ -108,6 +109,9 @@ background-color: rgb(91, 91, 242);
     justify-content: center;
     padding: 2rem;
     margin-top: 1rem;
+    background-color: #000c4255;
+    box-shadow: 6px 10px 8px #667eea60;
+    border-radius: 20px ;
 }
 
 .job-search-header {
@@ -947,13 +951,13 @@ background-color: rgb(91, 91, 242);
 }
 
 .skill-tag {
-    background-color: #D1DAEC;
+    background-color: rgba(11, 1, 80, 0.506);
     padding: 1rem;
     font-size: 1.2rem;
     border-radius: 5px;
     cursor: pointer;
     font-weight: 600;
-    color: #FBF9F5;
+    color: var(--register-color);
 }
 
 .skill-tag:hover {
@@ -1149,6 +1153,8 @@ background-color: rgb(91, 91, 242);
 .re-cards {
     display: flex;
     flex-direction: column;
+    width: 93vw;
+    margin: auto;
 }
 
 .re-header {
@@ -1167,6 +1173,45 @@ background-color: rgb(91, 91, 242);
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 2rem;
+}
+.navbar-register{
+    margin-left: 100px;
+}
+@media screen and (max-width: 700px )  {
+    .browse-candidates-grid{
+    grid-template-columns: repeat(1, 1fr);
+    gap:1em;
+    margin-left:10px ;
+
+}
+.profile-footer ul li{
+    width: 30%;
+    margin-left: -30px !important;
+}
+
+.browse-candidates-grid a{
+    width: 90%;
+}
+
+    .re-cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap:0.8rem
+    }
+
+    .featured-jobs-card {
+    width: 100%;
+    /* margin-left: -5px !important; */
+    padding: 3em;
+    gap: 1em;
+    /* margin-right: -73px; */
+}
+    .fj-summary{
+        margin-top: -10px;
+        margin-bottom: -20px;
+    }
+    .re-cards{
+        margin-left: -10px;
+    }
 }
 
 .cp-card {
@@ -1318,7 +1363,7 @@ background-color: rgb(91, 91, 242);
 }
 
 .fj-apply {
-    background-color: #E0E6F7;
+    background-color: var(--button-background-color);
     color: var(--register-color);
     padding: 1rem;
     border-radius: 5px;
@@ -1434,10 +1479,10 @@ background-color: rgb(91, 91, 242);
 
 .profile-body-grid {
     display: grid;
-    grid-template-columns: 73% 25%;
+    grid-template-columns: 60% 35%;
     grid-template-rows: auto 1fr;
     padding: 4rem 0 4rem 0;
-    gap: 2rem;
+    gap: 1rem;
 }
 
 .profile-details {
@@ -1651,7 +1696,7 @@ background-color: rgb(91, 91, 242);
 }
 
 .pf-bottom {
-    font-size: 1.05rem;
+    font-size: 1rem;
     color: var(--ternary-text-color);
 }
 
@@ -2080,12 +2125,88 @@ background-color: rgb(91, 91, 242);
     }
 }
 
-@media(max-width: 768px) {
+.hamburger-icon{
+    display: none;
+}
 
-    .navbar-links,
-    .navbar-register {
+@media(max-width: 768px) {
+    .register-illustration{
         display: none;
     }
+    .hamburger-icon{
+        display: inline;
+        
+    }
+
+.register-wrapper{
+    width: 90vw;
+}
+    .profile-body-grid {
+        display: grid;
+        grid-template-columns: 53% 45% !important;
+        grid-template-rows: auto 1fr;
+        /* padding: 4rem 0 4rem 0; */
+        gap: 3px;
+    }
+    .profile-body-grid  .send-message{
+        width: 100% ;
+        font-size: small ;
+        padding: 5px;
+    }
+        .navbar-links ul{
+            border: 2px solid rgba(0, 0, 0, 0.237);
+            border-radius: 4px;
+            box-shadow: 5px 10px 60px rgba(0, 0, 0, 0.317); 
+            display: flex;
+            font-size: 1.5rem;
+            z-index: 100; 
+       flex-direction: column;
+         justify-content: space-around;
+        position: fixed;
+        padding-bottom: 50vh !important;
+        padding-left: 20px !important;
+        padding-top: 20vh !important;
+        top:0;
+
+        right: 0; 
+        width: 250px;
+        height: 70%;
+        background-color: #e9e7e7ea;
+        /* box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.3); */
+        transition:  2s ease; /* Transition for smooth animation */
+    }
+    
+    .navbar-links ul li{
+        list-style: circle;
+        border-top:2px solid black ;
+        border-bottom:2px solid black ;
+    }
+    .job-search-input-container{
+        width: 100%;
+    }
+    .job-search-button{
+        width: 20% !important;
+    }
+    select{
+        width: 40%;
+        font-size: 1.3em !important;
+    }
+    .navbar-links-open ul {
+    position: absolute !important;
+    display: none;
+      }
+      
+    
+      
+      /* .overlay.active {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 999;
+      } */
 
     .hb-active {
         display: block;
@@ -2093,11 +2214,15 @@ background-color: rgb(91, 91, 242);
 
     .featured-jobs-cards-container,
     .categories-cards-container {
-        grid-template-columns: repeat(2, 1fr);
-    }
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 1em !important;
 
+    }
+.box-character{
+    display: none;
+}
     .post-job-container {
-        width: 80%;
+        width: 78%;
     }
 
     .post-job-details {
@@ -2109,6 +2234,13 @@ background-color: rgb(91, 91, 242);
 
     .post-job-image {
         display: none;
+    }
+    .find-job-card {
+
+       padding: 5px; 
+       border: 2px solid rgba(0, 0, 0, 0.079);
+       margin-right: -1px;
+       padding-top: 10px;
     }
 }
 
@@ -2196,9 +2328,7 @@ background-color: rgb(91, 91, 242);
 /* Media query for screens up to 768px */
 @media (max-width: 768px) {
     /* Adjust styles for small screens */
-    .navbar-links ul {
-        width: auto;
-    }
+
     
     .categories-cards-container {
         grid-template-columns: repeat(2, 1fr);

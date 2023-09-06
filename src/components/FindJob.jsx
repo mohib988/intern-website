@@ -32,7 +32,7 @@ dispatch(getPostsBySearch(search))
 
 
     if(isLoading){
-      return   <div style={{width:"115px",margin:"auto"}}><ReactLoading color='black' type="spin" height={337} width={115} /></div>
+      return   <div style={{width:"115px",margin:"auto"}}><ReactLoading color='orange' type="spin" height={337} width={115} /></div>
     }
     if(!(posts.length>0)){
       return   <h1 style={{width:"100vw",height:"50vh",fontSize:"10vh" }}> sorry No posts</h1>

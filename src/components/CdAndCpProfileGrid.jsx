@@ -50,7 +50,7 @@ const CdAndCpProfileGrid = (props) => {
 }
   }
 if(isLoading){
-    return   <div style={{width:"115px",margin:"auto"}}><ReactLoading color='black' type="spin" height={337} width={115} /></div>
+    return   <div style={{width:"115px",margin:"auto"}}><ReactLoading color='orange' type="spin" height={337} width={115} /></div>
   }
     let weProps = {
         logo: <FcGoogle />,
@@ -108,7 +108,7 @@ if(isLoading){
                         
 
 {isLoading? 
-  <ReactLoading color='black' type="spin" height={337} width={115} />
+  <ReactLoading color='orange' type="spin" height={337} width={115} />
     :(props.profile.skill)?
                   (props.profile?.skill).map((i,j)=>{
                       return  <span key={j}>{i}</span>}

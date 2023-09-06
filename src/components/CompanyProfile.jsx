@@ -29,7 +29,7 @@ dispatch(getOneCompany(id))
   },[id])
 
 //  if(isLoading){
-//   return      <ReactLoading color='black' type="spin" height={337} width={115} />
+//   return      <ReactLoading color='orange' type="spin" height={337} width={115} />
 
 //  }
 

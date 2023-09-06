@@ -39,7 +39,7 @@ const ProfileCard = (props) => {
                         <span className="pf-work-time">{ props.prop.startingDate.substring(0,4)+"-"+props.prop.endingDate.substring(0,4)||"No Data"
                         }</span>
                     </section>
-                    <div style={{display:"block",width:"400px" }} className="pf-bottom">{props.prop.description ||"No Data"}</div>
+                    <div style={{display:"block",width:"100%" }} className="pf-bottom">{props.prop.description ||"No Data"}</div>
                 </div>
                   {user?._id==props.userId ? 
                   <CiEdit onClick={()=>seteducation(true)} style={{fontSize:"60px",display:"inline",cursor:"pointer"}}/>

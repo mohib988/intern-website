@@ -17,7 +17,6 @@ const FeaturedJobsCard = ({logo, name, location, position, schedule, salary}) =>
         </section>
         <section className="featured-jobs-card-footer">
             <span className='job-salary'>${salary}<span>month</span></span>
-            <button className="job-details-btn">Details</button>
         </section>
     </div>
   )
