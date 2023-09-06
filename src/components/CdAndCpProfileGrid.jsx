@@ -50,7 +50,7 @@ const CdAndCpProfileGrid = (props) => {
 }
   }
 if(isLoading){
-    return   <div style={{width:"115px",margin:"auto"}}><ReactLoading color='orange' type="spin" height={337} width={115} /></div>
+    return    <div style={{width:"115px",margin:"auto",marginTop:"20vh"}}><ReactLoading color='orange' type="spinningBubbles" height={337} width={115} /></div>
   }
     let weProps = {
         logo: <FcGoogle />,
